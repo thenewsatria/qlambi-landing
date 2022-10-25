@@ -1,4 +1,4 @@
-import qlambiLogo from '../../assets/qlambi-logo.png'
+import qlambiLogo from '../../assets/qlambi-logo.svg'
 
 function NavigationBar(){
     return (
