@@ -2,22 +2,22 @@ import qlambiLogo from '../../assets/qlambi-logo.png'
 
 function NavigationBar(){
     return (
-        <nav className="bg-red-500 flex justify-center">
-            <div className="w-4/5 flex justify-between items-center py-4">
+        <nav className="bg-transparent w-screen flex justify-center fixed z-20">
+            <div className="w-11/12 flex justify-between items-center py-6">
                 <div className='w-32'>
                     <img className='w-full' src={qlambiLogo} alt="" />
                 </div>
-                <div className="flex">
-                    <div>
-                        <p className="text-xl text-orange-500 text-bold">Beranda</p>
+                <div className="flex text-xl font-bold">
+                    <div className='mr-10 text-primary'>
+                        <p className="">Beranda</p>
                     </div>
-                    <div>
+                    <div className='mr-10 text-white'> 
                         <p>Layanan</p>
                     </div>
-                    <div>
+                    <div className='mr-10 text-white'>
                         <p>Portofolio</p>
                     </div>
-                    <div>
+                    <div className='mr-10 text-white'>
                         <p>Tentang</p>
                     </div>
                 </div>
