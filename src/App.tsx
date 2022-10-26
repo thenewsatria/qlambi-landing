@@ -7,15 +7,76 @@ import radialBg3 from './assets/radial-bg-3.svg'
 import dottedBg1 from './assets/dotted-bg-1.svg'
 import radialBg4 from './assets/radial-bg-4.svg'
 import qlambiLogo from './assets/qlambi-logo.svg'
-import arrowIcon from './assets/arrow.svg'
 import tiktokIcon from './assets/tiktok.svg'
 import whatsappIcon from './assets/whatsapp.svg'
 import instagramIcon from './assets/instagram.svg'
+import arrowIcon from './assets/arrow.svg'
+
 
 import './App.css'
 import NavigationBar from './components/NavigationBar/NavigationBar'
+import FAQDropdown from './components/FAQdropdown/FAQDropdown'
+import WhyUsDropdown from './components/WhyUsDropdown/WhyUsDropdown'
 
 function App() {
+  const faqs = {
+    'left': [
+      {
+        'question':'Apakah bisa sablon satuan?',
+        'answer':'Tentu, kamu bisa pesan sablon tanpa minimum pemesanan.'
+      },
+      {
+        'question':'Apa jenis sablon yang digunakan?',
+        'answer':'Kami memproduksi dengan jenis sablon DTF ( Direct to Film).'
+      },
+      {
+        'question':'Berapa biaya cetak kaosnya?',
+        'answer':'Biaya sablon kami mulai dari harga 10.000 rupiah saja.'
+      },
+    ],
+    'right': [
+      {
+        'question':'Apakah bisa dikirim luar kota?',
+        'answer':'Tentu bisa, kami melayani pengiriman untuk seluruh Indonesia ya.'
+      },
+      {
+        'question':'Berapa lama waktu produksi?',
+        'answer':'Waktu produksi kami hanya berkisar antara 1-2 hari saja.'
+      },
+      {
+        'question':'Apakah produksi bisa dalam jumlah banyak?',
+        'answer':'Sangat bisa. Tentunya dengan harga yang jauh lebih murah.'
+      },
+    ]
+  }
+
+  const whys = [
+    {
+      "num": "01",
+      "title": "Produksi hanya 1 - 2 hari",
+      "description": "Dengan proses produksi yang singkat, kami dapat memenuhi kebutuhan pesanan kamu tanpa harus menunggu lama." 
+    },
+    {
+      "num": "02",
+      "title": "Tanpa minimal order",
+      "description": "Kamu bisa pesan mulai 1 pcs juga tanpa ada minimal warna sablon" 
+    },
+    {
+      "num": "03",
+      "title": "Gratis Ongkir",
+      "description": "Kami akan berikan gratis ongkir untuk kamu yang ada di Pulau Jawa dengan minimal pemesanan 30 pcs" 
+    },
+    {
+      "num": "04",
+      "title": "Konsultasi Gratis",
+      "description": "Gak perlu bingung untuk menentukan desain sablon dan pakaianmu. Konsultasikan saja kepada kami!" 
+    },
+    {
+      "num": "05",
+      "title": "Desain sablon sesuai keinginanmu",
+      "description": "Desain sablon semaumu, kami siap realisasikan semuanya" 
+    },
+  ]
 
   return (
     <div className="App font-primary">
@@ -75,70 +136,52 @@ function App() {
             <img src={dottedBg1} alt="" />
           </div>
           <div className='grid gap-20 grid-cols-3 grid-rows-2 auto-cols-max auto-rows-max w-9/12'>
-            <div className='overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
+            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
               <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='bg-black/75 px-10 pt-5 pb-6 absolute bottom-0'>
-                <div className='text-center mb-4'>
-                  <p className='text-white font-bold text-2xl'>Sablon</p>
-                </div>
-                <div className='text-center text-white font-semibold text-lg'>
-                  <p>Sablon ini adalah sablon yang terbaik</p>
-                </div>
+              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
+              <p className='text-white font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Sablon</p>
+              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
+                <p className='text-center text-white font-semibold text-lg'>Realisasikan karyamu melalui sablon dengan hasil cetak kualitas tinggi.</p>
               </div>
             </div>
-            <div className='overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
+            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
               <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='bg-black/75 px-10 pt-5 pb-6 absolute bottom-0'>
-                <div className='text-center mb-4'>
-                  <p className='text-white font-bold text-2xl'>Sablon</p>
-                </div>
-                <div className='text-center text-white font-semibold text-lg'>
-                  <p>Sablon ini adalah sablon yang terbaik</p>
-                </div>
+              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
+              <p className='text-white font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Desain</p>
+              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
+                <p className='text-center text-white font-semibold text-lg'>Dengan desainer profesional, kami siap membantumu untuk mendapatkan ide-ide yang sangat menarik.</p>
               </div>
             </div>
-            <div className='overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
+            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
               <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='bg-black/75 px-10 pt-5 pb-6 absolute bottom-0'>
-                <div className='text-center mb-4'>
-                  <p className='text-white font-bold text-2xl'>Sablon</p>
-                </div>
-                <div className='text-center text-white font-semibold text-lg'>
-                  <p>Sablon ini adalah sablon yang terbaik</p>
-                </div>
+              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
+              <p className='text-white font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Kaos</p>
+              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
+                <p className='text-center text-white font-semibold text-lg'>Terbuat dari bahan kualitas tinggi, memberikan kenyamanan untuk kamu yang memakainya.</p>
               </div>
             </div>
-            <div className='overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
+            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
               <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='bg-black/75 px-10 pt-5 pb-6 absolute bottom-0'>
-                <div className='text-center mb-4'>
-                  <p className='text-white font-bold text-2xl'>Sablon</p>
-                </div>
-                <div className='text-center text-white font-semibold text-lg'>
-                  <p>Sablon ini adalah sablon yang terbaik</p>
-                </div>
+              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
+              <p className='text-white font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Totebag</p>
+              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
+                <p className='text-center text-white font-semibold text-lg'>Desain totebag yang <span className='italic'>up-to-date</span> menyempurnakan tampilanmu menjadi lebih keren.</p>
               </div>
             </div>
-            <div className='overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
+            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
               <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='bg-black/75 px-10 pt-5 pb-6 absolute bottom-0'>
-                <div className='text-center mb-4'>
-                  <p className='text-white font-bold text-2xl'>Sablon</p>
-                </div>
-                <div className='text-center text-white font-semibold text-lg'>
-                  <p>Sablon ini adalah sablon yang terbaik</p>
-                </div>
+              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
+              <p className='text-white font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Celana</p>
+              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
+                <p className='text-center text-white font-semibold text-lg'>Terbuat dari material terbaik sehingga nyaman untuk digunakan sehari-hari.</p>
               </div>
             </div>
-            <div className='overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
+            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
               <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='bg-black/75 px-10 pt-5 pb-6 absolute bottom-0'>
-                <div className='text-center mb-4'>
-                  <p className='text-white font-bold text-2xl'>Sablon</p>
-                </div>
-                <div className='text-center text-white font-semibold text-lg'>
-                  <p>Sablon ini adalah sablon yang terbaik</p>
-                </div>
+              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
+              <p className='text-white font-bold text-4xl absolute top-3/4 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Hoodie</p>
+              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
+                <p className='text-center text-white font-semibold text-lg'>Pilihan koleksi hoodie siap memberikan tampilanmu jauh lebih casual dan modis.</p>
               </div>
             </div>
           </div>
@@ -151,111 +194,11 @@ function App() {
         <div className='flex justify-center'>
           <div className='w-4/5 flex justify-between items-center'>
             <div className='w-1/2 mr-14'>
-              <div>
-                <div className='flex justify-between items-start'>
-                  <div className='w-1/12 mr-3'>
-                    <p className='text-4xl text-primary font-semibold'>01</p>
-                  </div>
-                  <div className='w-9/12 mr-3'>
-                    <p className='text-4xl text-white font-semibold'>Produksi hanya 1 - 2 hari</p>
-                  </div>
-                  <div className='w-1/12 flex justify-start items-center'>
-                    <img className='w-10 rotate-90' src={arrowIcon} alt="" />
-                  </div>
-                </div>
-                <div className='mt-6'>
-                  <div className='mx-auto w-9/12'>
-                    <p className='text-2xl text-white'>Pakaianmu blabla blabla lorem ipsum dolor sit amet.</p>
-                  </div>
-                </div>
-                <div className='mt-14'>
-                  <hr className='mx-auto w-9/12'/>
-                </div>
-              </div>
-              <div className='mt-8'>
-                <div className='flex justify-between items-start'>
-                  <div className='w-1/12 mr-3'>
-                    <p className='text-4xl text-primary font-semibold'>02</p>
-                  </div>
-                  <div className='w-9/12 mr-3'>
-                    <p className='text-4xl text-white font-semibold'>Tanpa minimal order</p>
-                  </div>
-                  <div className='w-1/12 flex justify-start items-center'>
-                    <img className='w-10' src={arrowIcon} alt="" />
-                  </div>
-                </div>
-                {/* <div className='mt-6'>
-                  <div className='mx-auto w-9/12'>
-                    <p className='text-2xl text-white'>Kamu selalu diperbolehkan untuk memesan layanan kami walaupun jumlahnya satuan, ratusan atau ribuan sekalipun</p>
-                  </div>
-                </div> */}
-                <div className='mt-14'>
-                  <hr className='mx-auto w-9/12'/>
-                </div>
-              </div>
-              <div className='mt-8'>
-                <div className='flex justify-between items-start'>
-                  <div className='w-1/12 mr-3'>
-                    <p className='text-4xl text-primary font-semibold'>03</p>
-                  </div>
-                  <div className='w-9/12 mr-3'>
-                    <p className='text-4xl text-white font-semibold'>Gratis Ongkir</p>
-                  </div>
-                  <div className='w-1/12 flex justify-start items-center'>
-                    <img className='w-10' src={arrowIcon} alt="" />
-                  </div>
-                </div>
-                {/* <div className='mt-6'>
-                  <div className='mx-auto w-9/12'>
-                    <p className='text-2xl text-white'>Kamu selalu diperbolehkan untuk memesan layanan kami walaupun jumlahnya satuan, ratusan atau ribuan sekalipun</p>
-                  </div>
-                </div> */}
-                <div className='mt-14'>
-                  <hr className='mx-auto w-9/12'/>
-                </div>
-              </div>
-              <div className='mt-8'>
-                <div className='flex justify-between items-start'>
-                  <div className='w-1/12 mr-3'>
-                    <p className='text-4xl text-primary font-semibold'>04</p>
-                  </div>
-                  <div className='w-9/12 mr-3'>
-                    <p className='text-4xl text-white font-semibold'>Konsultasi Gratis</p>
-                  </div>
-                  <div className='w-1/12 flex justify-start items-center'>
-                    <img className='w-10' src={arrowIcon} alt="" />
-                  </div>
-                </div>
-                {/* <div className='mt-6'>
-                  <div className='mx-auto w-9/12'>
-                    <p className='text-2xl text-white'>Kamu selalu diperbolehkan untuk memesan layanan kami walaupun jumlahnya satuan, ratusan atau ribuan sekalipun</p>
-                  </div>
-                </div> */}
-                <div className='mt-14'>
-                  <hr className='mx-auto w-9/12'/>
-                </div>
-              </div>
-              <div className='mt-8'>
-                <div className='flex justify-between items-start'>
-                  <div className='w-1/12 mr-3'>
-                    <p className='text-4xl text-primary font-semibold'>05</p>
-                  </div>
-                  <div className='w-9/12 mr-3'>
-                    <p className='text-4xl text-white font-semibold'>Desain sablon sesuai keinginanmu</p>
-                  </div>
-                  <div className='w-1/12 flex justify-start items-center'>
-                    <img className='w-10' src={arrowIcon} alt="" />
-                  </div>
-                </div>
-                {/* <div className='mt-6'>
-                  <div className='mx-auto w-9/12'>
-                    <p className='text-2xl text-white'>Kamu selalu diperbolehkan untuk memesan layanan kami walaupun jumlahnya satuan, ratusan atau ribuan sekalipun</p>
-                  </div>
-                </div> */}
-                <div className='mt-14'>
-                  <hr className='mx-auto w-9/12'/>
-                </div>
-              </div>
+              {
+                whys.map((reason) => (
+                  <WhyUsDropdown num={reason.num} title={reason.title} description={reason.description} key={reason.num} />
+                ))
+              }
             </div>
             {/* <div className='w-1/2 ml-8 relative h-[60rem]'>
               <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] overflow-hidden absolute z-10 top-0 left-0'>
@@ -274,10 +217,11 @@ function App() {
           </div>
         </div>
       </section>
+      {/* Tunggu Apa Lagi? Section */}
       <section className='bg-zinc-900 pt-28 pb-48'>
         <div className='w-4/5 mx-auto bg-primary rounded-2xl pb-4 pt-8 relative overflow-hidden'>
           <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>
-            <img className='object-cover object-center' src={radialBg4} alt="" />
+            <img className='object-cover object-center animate-spin' src={radialBg4} alt="" />
           </div>
           <div className='mt-24 mb-14 relative z-10'>
             <h1 className='text-center text-5xl text-white font-semibold mb-10'>Tunggu apa lagi?</h1>
@@ -288,9 +232,22 @@ function App() {
           </div>
         </div>
       </section>
+      {/* FAQ section */}
       <section className='bg-black pt-20 pb-20'>
-        <div className='text-center'>
+        <div className='text-center mb-32'>
           <h1 className='text-white text-5xl font-bold'>Frequently A<span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>sked Qu</span>estion (FAQ)</h1>
+        </div>
+        <div className='w-9/12 mx-auto flex justify-between items-start'>
+          <div className='w-1/2 mr-10'>
+            {faqs.left.map((faq, id) => (
+              <FAQDropdown question={faq.question} answer={faq.answer} key={id} />
+            ))}
+          </div>
+          <div className='w-1/2 ml-10'>
+            {faqs.right.map((faq, id) => (
+              <FAQDropdown question={faq.question} answer={faq.answer} key={id} />
+            ))}
+          </div>
         </div>
       </section>
       <footer className='bg-zinc-900 pt-28 pb-16'>
@@ -300,11 +257,11 @@ function App() {
               <div className='mb-8'>
                 <img className="w-32" src={qlambiLogo} alt="" />
               </div>
-              <div className='w-2/3'>
-                <p className='text-white text-xl'>Qlambi studio adalah lorem ipsum dolor sir amet lara koei asiqq</p>
+              <div className='w-10/12'>
+                <p className='text-white text-xl'>Qlambi studio hadir untuk memberikan solusi berkualitas dan kemudahan dalam urusan desain, sablon, kaos dan sebagainya.</p>
               </div>
             </div>
-            <div className='w-1/3 ml-40'>
+            <div className='w-1/3 ml-64'>
               <div className='mb-12'>
                 <p className='text-white font-semibold text-xl'>Sosial Media</p>
               </div>
@@ -355,26 +312,6 @@ function App() {
           <p className='text-white text-xl text-center'>&copy; 2022 Qlambi Studio</p>
         </div>
       </footer>
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-red-400">Vite + React + Manuk + Ngaceng+ Bingity</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
     </div>
   )
 }
