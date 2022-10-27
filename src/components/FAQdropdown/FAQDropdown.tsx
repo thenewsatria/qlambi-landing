@@ -32,6 +32,7 @@ function FAQDropdown(props: any) {
             } */}
             <div className={isActive? 'animate-faqdialogactive' : 'animate-faqdialoginactive'}>
                 <p className={isActive? 'animate-faqanswerfadein' : 'animate-faqanswerfadeout'}>{props.answer}</p>
+                {/* <p className={isActive? 'text-xl h-auto': 'text-xl h-0'}>{props.answer}</p> */}
             </div>
             {/* <div className='mt-0 pr-0 mb-0 group-hover:mt-6 group-hover:pr-20 group-hover:mb-10 transition-all duration-300'>
                 <p className='text-[0px] opacity-0 group-hover:opacity-100 group-hover:text-xl transition-all duration-300'>{props.answer}</p>

@@ -35,20 +35,34 @@ module.exports = {
                     to: {top: '100%', opacity:'0%'},
                 },
                 faqdialogactive: {
-                    from: {padding: '0rem 0rem 0rem 0rem', margin:'0rem 0rem 0rem 0rem'},
+                    from: {padding: '0rem 5rem 0rem 0rem', margin:'0rem 0rem 0rem 0rem'},
                     to: {padding: '0rem 5rem 0rem 0rem', margin:'1.5rem 0rem 2.5rem 0rem'},
                 },
                 faqdialoginactive: {
                     from: {padding: '0rem 5rem 0rem 0rem', margin:'1.5rem 0rem 2.5rem 0rem'},
-                    to: {padding: '0rem 0rem 0rem 0rem', margin:'0rem 0rem 0rem 0rem'},
+                    to: {padding: '0rem 5rem 0rem 0rem', margin:'0rem 0rem 0rem 0rem'},
                 },
                 fadein: {
                     from: {opacity:'0%', fontSize:"0rem"},
                     to: {opacity:'100%', fontSize:"1.25rem"},
                 },
+                fadeinnew: {
+                    "0%": {opacity:'0%', fontSize:"0rem"},
+                    "25%": {opacity:'0%', fontSize:"1.25rem"},
+                    "50%": {opacity:'0%', fontSize:"1.25rem"},
+                    "75%": {opacity:'50%', fontSize:"1.25rem"},
+                    "100%": {opacity:'100%', fontSize:"1.25rem"},
+                },
                 fadeout: {
                     from: {opacity:'100%', fontSize:"1.25rem"},
                     to: {opacity:'0%', fontSize:"0rem"},
+                },
+                fadeoutnew: {
+                    "0%": {opacity:'100%', fontSize:"1.25rem"},
+                    "25%": {opacity:'50%', fontSize:"1.25rem"},
+                    "50%": {opacity:'0%', fontSize:"1.25rem"},
+                    "75%": {opacity:'0%', fontSize:"0rem"},
+                    "100%": {opacity:'0%', fontSize:"0rem"},
                 },
                 whydialogactive: {
                     from: {margin:'0rem 0rem 0rem 0rem'},
@@ -65,6 +79,20 @@ module.exports = {
                 whyfadeout: {
                     from: {opacity:'100%', fontSize:"1.5rem"},
                     to: {opacity:'0%', fontSize:"0rem"},
+                },
+                whyfadeinnew: {
+                    "0%": {opacity:'0%', fontSize:"0rem"},
+                    "25%": {opacity:'0%', fontSize:"1.5rem"},
+                    "50%": {opacity:'0%', fontSize:"1.5rem"},
+                    "75%": {opacity:'50%', fontSize:"1.5rem"},
+                    "100%": {opacity:'100%', fontSize:"1.5rem"},
+                },
+                whyfadeoutnew: {
+                    "0%": {opacity:'100%', fontSize:"1.5rem"},
+                    "25%": {opacity:'50%', fontSize:"1.5rem"},
+                    "50%": {opacity:'0%', fontSize:"1.5rem"},
+                    "75%": {opacity:'0%', fontSize:"0rem"},
+                    "100%": {opacity:'0%', fontSize:"0rem"},
                 },
                 rotate0to90: {
                     from: {transform: "rotate(0deg)"},
@@ -84,10 +112,10 @@ module.exports = {
                 },
                 navbarscrolled: {
                     from: {backdropFilter: "blur(0)", backgroundColor: 'transparent'},
-                    to: {backdropFilter: "blur(12px)", backgroundColor: 'rgba(0,0,0,0.5)'},
+                    to: {backdropFilter: "blur(16px)", backgroundColor: 'rgba(0,0,0,0.6)'},
                 },
                 navbarunscrolled: {
-                    from: {backdropFilter: "blur(12px)", backgroundColor: 'rgba(0,0,0,0.5)'},
+                    from: {backdropFilter: "blur(16px)", backgroundColor: 'rgba(0,0,0,0.6)'},
                     to: {backdropFilter: "blur(0)", backgroundColor: 'transparent'},
                 }
                 // inlinehidden: {
@@ -104,16 +132,16 @@ module.exports = {
                 setabit: 'setabit 0.3s ease-in-out forwards',
                 riseandfadein: 'riseandfadein 0.3s ease-in-out forwards',
                 setandfadeout: 'setandfadeout 0.3s ease-in-out forwards',
-                faqdialogactive: 'faqdialogactive 0.3s ease-in-out forwards',
-                faqdialoginactive: 'faqdialoginactive 0.3s ease-in-out forwards',
-                faqanswerfadein: 'fadein 0.3s ease-in-out forwards',
-                faqanswerfadeout: 'fadeout 0.3s ease-in-out forwards',
-                whydialogactive: 'whydialogactive 0.3s ease-in-out forwards',
-                whydialoginactive: 'whydialoginactive 0.3s ease-in-out forwards',
-                whyanswerfadein: 'whyfadein 0.3s ease-in-out forwards',
-                whyanswerfadeout: 'whyfadeout 0.3s ease-in-out forwards',
-                arrowrotate: 'rotate0to90 0.3s ease-in-out forwards',
-                arrowunrotate: 'rotate90to0 0.3s ease-in-out forwards',
+                faqdialogactive: 'faqdialogactive .8s ease-in-out forwards',
+                faqdialoginactive: 'faqdialoginactive .8s ease-in-out forwards',
+                faqanswerfadein: 'fadeinnew 0.5s ease-in-out forwards',
+                faqanswerfadeout: 'fadeoutnew 0.5s ease-in-out forwards',
+                whydialogactive: 'whydialogactive 1s ease-in-out forwards',
+                whydialoginactive: 'whydialoginactive 1s ease-in-out forwards',
+                whyanswerfadein: 'whyfadeinnew 0.7s ease-in-out forwards',
+                whyanswerfadeout: 'whyfadeoutnew 0.7s ease-in-out forwards',
+                arrowrotate: 'rotate0to90 0.4s ease-in-out forwards',
+                arrowunrotate: 'rotate90to0 0.4s ease-in-out forwards',
                 navbaractive: "navbaractive 0.3s ease-in-out forwards",
                 navbarinactive: "navbarinactive 0.3s ease-in-out forwards",
                 navbarscrolled: "navbarscrolled 0.3s ease-in-out forwards",

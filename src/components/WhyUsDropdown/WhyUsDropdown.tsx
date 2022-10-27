@@ -29,7 +29,7 @@ function WhyUsDropdown (props: any) {
             </div>
             <div className={isActive? 'animate-faqdialogactive' : 'animate-faqdialoginactive'}>
                 <div className='mx-auto w-9/12'>
-                    <p className={isActive? 'text-white animate-whyanswerfadein' : 'text-white animate-whyanswerfadeout'}>{props.description}</p>
+                    <p className={isActive? 'text-white animate-whyanswerfadein ml-3' : 'text-white animate-whyanswerfadeout ml-3'}>{props.description}</p>
                 </div>
             </div>
             <div className='mt-14'>

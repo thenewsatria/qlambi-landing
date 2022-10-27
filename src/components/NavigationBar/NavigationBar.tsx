@@ -11,7 +11,9 @@ function NavigationBar(props: any){
                 navbar.current.classList.add("animate-navbarscrolled")
                 navbar.current.classList.remove("animate-navbarunscrolled")
             }else{
-                navbar.current.classList.add("animate-navbarunscrolled")
+                if (navbar.current.classList.contains('animate-navbarscrolled')){
+                    navbar.current.classList.add("animate-navbarunscrolled")
+                }
                 navbar.current.classList.remove("animate-navbarscrolled")
             }
         }

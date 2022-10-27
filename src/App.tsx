@@ -53,7 +53,7 @@ function App() {
         
       })
   }
-  
+
   window.addEventListener("scroll", navigationHightlight);
   window.addEventListener("load", navigationHightlight)
 
