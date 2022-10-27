@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { LegacyRef, RefObject, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import jacketPic from './assets/jacket.png'
 import radialBg1 from './assets/radial-bg-1.svg'
@@ -19,6 +19,44 @@ import FAQDropdown from './components/FAQdropdown/FAQDropdown'
 import WhyUsDropdown from './components/WhyUsDropdown/WhyUsDropdown'
 
 function App() {
+  const mainSections = new Map<string, any> ([
+    ['beranda', useRef<HTMLElement>(null)],
+    ['layanan', useRef<HTMLElement>(null)],
+    ['tentang', useRef<HTMLElement>(null)]
+  ])
+
+  const activeNavRef = new Map<string, any> ([
+    ['beranda', useRef<HTMLElement>(null)],
+    ['layanan', useRef<HTMLElement>(null)],
+    ['tentang', useRef<HTMLElement>(null)]
+  ])
+
+  const navigationHightlight = () => {
+      let currentPos: number = window.scrollY;
+
+      mainSections.forEach((section, key) => {
+        const sectionHeight: number = section.current?.offsetHeight
+        const sectionTop: number = section.current?.offsetTop - 50
+        const currentActiveLink = activeNavRef.get(key).current
+         
+        if (currentActiveLink != null) {
+          if (currentPos > sectionTop && currentPos <= sectionTop + sectionHeight) {
+            currentActiveLink.classList.add("animate-navbaractive")
+            currentActiveLink.classList.remove("animate-navbarinactive")
+          }else{
+            if (currentActiveLink.classList.contains('animate-navbaractive')){
+              currentActiveLink.classList.add("animate-navbarinactive")
+            }
+            currentActiveLink.classList.remove("animate-navbaractive")
+          }
+        }
+        
+      })
+  }
+  
+  window.addEventListener("scroll", navigationHightlight);
+  window.addEventListener("load", navigationHightlight)
+
   const faqs = {
     'left': [
       {
@@ -27,7 +65,7 @@ function App() {
       },
       {
         'question':'Apa jenis sablon yang digunakan?',
-        'answer':'Kami memproduksi dengan jenis sablon DTF ( Direct to Film).'
+        'answer':'Kami memproduksi dengan jenis sablon DTF (Direct to Film).'
       },
       {
         'question':'Berapa biaya cetak kaosnya?',
@@ -80,8 +118,22 @@ function App() {
 
   return (
     <div className="App font-primary">
-      <NavigationBar/>
-      <section className='bg-black flex justify-center pt-56 pb-20 relative'>
+      <NavigationBar>
+        <div className='mr-10 text-primary' ref={activeNavRef.get('beranda')}>
+            <a className="cursor-pointer" href='#beranda'>Beranda</a>
+        </div>
+        <div className='mr-10 text-white' ref={activeNavRef.get('layanan')}> 
+            <a className="cursor-pointer" href='#layanan'>Layanan</a>
+        </div>
+        <div className='mr-10 text-white'>
+            <a className="cursor-pointer" href='#portofolio'>Portofolio</a>
+        </div>
+        <div className='mr-10 text-white' ref={activeNavRef.get('tentang')}>
+            <a className="cursor-pointer" href='#tentang'>Tentang</a>
+        </div>
+      </NavigationBar>
+      
+      <section className='bg-black flex justify-center pt-56 pb-20 relative' id='beranda' ref={mainSections.get('beranda')}>
         <div className='absolute top-0 left-0'>
           <img className='w-160' src={radialBg1} alt="" />
         </div>
@@ -124,7 +176,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className='pt-20 bg-zinc-900 pb-40'>
+      <section className='pt-20 bg-zinc-900 pb-40' id='layanan' ref={mainSections.get('layanan')}>
         <div className='text-center pb-28'>
           <h1 className='text-5xl font-bold text-white'>Layanan <span className='text-primary'>Kami</span></h1>
         </div>
@@ -250,7 +302,7 @@ function App() {
           </div>
         </div>
       </section>
-      <footer className='bg-zinc-900 pt-28 pb-16'>
+      <footer className='bg-zinc-900 pt-28 pb-16' id='tentang' ref={mainSections.get('tentang')}>
         <div className='flex justify-center'>
           <div className='w-4/5 flex justify-between items-start'>
             <div className='w-1/3'>

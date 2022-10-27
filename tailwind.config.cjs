@@ -73,6 +73,22 @@ module.exports = {
                 rotate90to0: {
                     from: {transform: "rotate(90deg)"},
                     to: {transform: "rotate(0deg)"},
+                },
+                navbaractive: {
+                    from: {color: "rgb(255 255 255)"},
+                    to: {color: "#FF024C"},
+                },
+                navbarinactive: {
+                    from: {color: "#FF024C"},
+                    to: {color: "rgb(255 255 255)"},
+                },
+                navbarscrolled: {
+                    from: {backdropFilter: "blur(0)", backgroundColor: 'transparent'},
+                    to: {backdropFilter: "blur(12px)", backgroundColor: 'rgba(0,0,0,0.5)'},
+                },
+                navbarunscrolled: {
+                    from: {backdropFilter: "blur(12px)", backgroundColor: 'rgba(0,0,0,0.5)'},
+                    to: {backdropFilter: "blur(0)", backgroundColor: 'transparent'},
                 }
                 // inlinehidden: {
                 //     from: {display: 'inline'},
@@ -98,6 +114,10 @@ module.exports = {
                 whyanswerfadeout: 'whyfadeout 0.3s ease-in-out forwards',
                 arrowrotate: 'rotate0to90 0.3s ease-in-out forwards',
                 arrowunrotate: 'rotate90to0 0.3s ease-in-out forwards',
+                navbaractive: "navbaractive 0.3s ease-in-out forwards",
+                navbarinactive: "navbarinactive 0.3s ease-in-out forwards",
+                navbarscrolled: "navbarscrolled 0.3s ease-in-out forwards",
+                navbarunscrolled: "navbarunscrolled 0.3s ease-in-out forwards"
                 // faqanswerhide: 'inlinehidden 0.1s ease-in-out 0.5s forwards',
                 // faqanswershow: 'inlineshow 0.1s ease-in-out forwards'
             },
