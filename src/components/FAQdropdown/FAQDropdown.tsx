@@ -6,40 +6,94 @@ function FAQDropdown(props: any) {
     const [isActive, setActive] = useState(false)
     const prevState = useRef<boolean>(false)
     
+
+    const textRef: any = useRef<HTMLElement>(null)
+    const dialogRef: any = useRef<HTMLElement>(null)
+    const iconRef: any = useRef<HTMLElement>(null)
+
     useEffect(() => {
         prevState.current = isActive;
     }, [isActive])
 
+    // const handleClick = () => {
+    //     setActive(!prevState.current)
+    // }
+
     const handleClick = () => {
-        setActive(!prevState.current)
+       const text = textRef.current
+       const dialog = dialogRef.current
+       const  icon = iconRef.current
+
+       if ((!text.classList.contains('animate-faqanswerfadein') && !text.classList.contains('animate-faqanswerfadeout'))) {
+            text.classList.add('animate-faqanswerfadein')
+        }else{
+            if(text.classList.contains('animate-faqanswerfadein')) {
+
+                text.classList.remove('animate-faqanswerfadein')
+                text.classList.add('animate-faqanswerfadeout')
+            }else {
+
+                text.classList.remove('animate-faqanswerfadeout')
+                text.classList.add('animate-faqanswerfadein')
+            }
+        }
+
+        if ((!dialog.classList.contains('animate-faqdialogactive') && !dialog.classList.contains('animate-faqdialoginactive'))) {
+            dialog.classList.add('animate-faqdialogactive')
+        }else{
+            if(dialog.classList.contains('animate-faqdialogactive')) {
+
+                dialog.classList.remove('animate-faqdialogactive')
+                dialog.classList.add('animate-faqdialoginactive')
+            }else {
+
+                dialog.classList.remove('animate-faqdialoginactive')
+                dialog.classList.add('animate-faqdialogactive')
+            }
+        }
+
+        // if ((!icon.classList.contains('w-10') && !icon.classList.contains('w-8'))) {
+        //     icon.classList.add('w-10')
+        //     icon.src = minusIcon
+        // }else{
+        //     if(icon.classList.contains('w-10')) {
+
+        //         icon.classList.remove('w-10')
+        //         icon.classList.add('w-8')
+        //         icon.src = plusIcon
+        //     }else {
+
+        //         icon.classList.remove('w-8')
+        //         icon.classList.add('w-10')
+        //         icon.src = minusIcon
+        //     }
+        // }
+
+        
+        if(icon.classList.contains('w-8')) {
+            
+            icon.classList.remove('w-8')
+            icon.classList.add('w-10')
+            icon.src = minusIcon
+        }else {
+
+            icon.classList.remove('w-10')
+            icon.classList.add('w-8')
+            icon.src = plusIcon
+        }
+
     }
     return (
         <div className='rounded-3xl bg-slate-200 mb-12 px-12 py-6 group'>
             <div className='flex justify-between items-center'>
                 <p className='font-semibold text-2xl mr-16'>{props.question}</p>
                 <button onClick={handleClick}>
-                    {isActive?
-                        <img className='w-10' src={minusIcon} alt="" />
-                        :
-                        <img className='w-8' src={plusIcon} alt="" />
-                    }
+                    <img className='w-8' src={plusIcon} alt="" ref={iconRef} />
                 </button>
             </div>
-            {/* {isActive?
-                <div className='mt-6 pr-20 mb-10 transition-margin'>
-                    <p className='text-xl'>{props.answer}</p>
-                </div>: null
-            } */}
-            <div className={isActive? 'animate-faqdialogactive' : 'animate-faqdialoginactive'}>
-                <p className={isActive? 'animate-faqanswerfadein' : 'animate-faqanswerfadeout'}>{props.answer}</p>
-                {/* <p className={isActive? 'text-xl h-auto': 'text-xl h-0'}>{props.answer}</p> */}
+            <div className="pr-20" ref={dialogRef}>
+                <p className="text-[0rem] opacity-0" ref={textRef}>{props.answer}</p>
             </div>
-            {/* <div className='mt-0 pr-0 mb-0 group-hover:mt-6 group-hover:pr-20 group-hover:mb-10 transition-all duration-300'>
-                <p className='text-[0px] opacity-0 group-hover:opacity-100 group-hover:text-xl transition-all duration-300'>{props.answer}</p>
-            </div> */}
-            {/* <div className='animate-faqdialoginactive group-hover:animate-faqdialogactive'>
-                <p className='animate-faqanswerfadeout group-hover:animate-faqanswerfadein'>{props.answer}</p>
-            </div> */}
         </div>
     )
 }

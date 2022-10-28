@@ -154,7 +154,7 @@ module.exports = {
                 navbarinactive: "navbarinactive 0.3s ease-in-out forwards",
                 navbarscrolled: "navbarscrolled 0.3s ease-in-out forwards",
                 navbarunscrolled: "navbarunscrolled 0.3s ease-in-out forwards",
-                portofolioslider1: "slider1 5s linear infinite",
+                portofolioslider1: "slider1 12s linear infinite",
                 portofolioslider2: "slider2 12s linear infinite",
                 // faqanswerhide: 'inlinehidden 0.1s ease-in-out 0.5s forwards',
                 // faqanswershow: 'inlineshow 0.1s ease-in-out forwards'

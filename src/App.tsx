@@ -35,39 +35,47 @@ function App() {
   const mainSections = new Map<string, any> ([
     ['beranda', useRef<HTMLElement>(null)],
     ['layanan', useRef<HTMLElement>(null)],
+    ['portofolio', useRef<HTMLElement>(null)],
     ['tentang', useRef<HTMLElement>(null)]
   ])
-
+  
   const activeNavRef = new Map<string, any> ([
     ['beranda', useRef<HTMLElement>(null)],
     ['layanan', useRef<HTMLElement>(null)],
+    ['portofolio', useRef<HTMLElement>(null)],
     ['tentang', useRef<HTMLElement>(null)]
   ])
 
-  // run once after mounted
-  useEffect(() => {
-    navigationHightlight()
-    window.addEventListener("scroll", navigationHightlight);
-  }, [])
-
+  const scrollableTestimoni: any = useRef<HTMLElement>(null)
+  const testimoniCard: any = useRef<HTMLElement>(null)
+  
   const testimoniButtonHandler = (direction: string) => {
+    const testimoniCardLegth = testimoniCard.current.offsetWidth
     if (direction == 'left') {
-        scrollableTestimoni.current.scrollLeft -= 840
+      scrollableTestimoni.current.scrollLeft -= testimoniCardLegth
     }else if (direction == 'right') {
-      scrollableTestimoni.current.scrollLeft += 840
+      scrollableTestimoni.current.scrollLeft += testimoniCardLegth
     }
   }
   
-
+  const handleNavbarClick = (e: any, sectionName: string) => {
+    e.preventDefault()
+    const scrollPos = mainSections.get(sectionName).current.offsetTop
+    window.scrollTo({
+      top: scrollPos,
+      behavior: 'smooth'
+    })
+  }
+  
   const navigationHightlight = () => {
-      let currentPos: number = window.scrollY;
-
-      mainSections.forEach((section, key) => {
-        const sectionHeight: number = section.current?.offsetHeight
-        const sectionTop: number = section.current?.offsetTop - 50
-        const currentActiveLink = activeNavRef.get(key).current
+    let currentPos: number = window.scrollY;
+    
+    mainSections.forEach((section, key) => {
+      const sectionHeight: number = section.current?.offsetHeight
+      const sectionTop: number = section.current?.offsetTop - 50
+      const currentActiveLink = activeNavRef.get(key).current
          
-        if (currentPos > sectionTop && currentPos <= sectionTop + sectionHeight) {
+      if (currentPos > sectionTop && currentPos <= sectionTop + sectionHeight) {
           currentActiveLink.classList.add("animate-navbaractive")
           currentActiveLink.classList.remove("animate-navbarinactive")
         }else{
@@ -77,13 +85,14 @@ function App() {
           currentActiveLink.classList.remove("animate-navbaractive")
         }
       })
-  }
-  const scrollableTestimoni: any = useRef<HTMLElement>(null)
-
-
-  // const testimoniCard: any = useRef<HTMLElement>(null)
-  // const testimoniAppender: any = useRef<HTMLElement>(null)
-
+    }
+    
+  // run once after mounted
+  useEffect(() => {
+    navigationHightlight()
+    window.addEventListener("scroll", navigationHightlight);
+  }, [])
+  
   const services = [
     {
       img: jacketPic,
@@ -202,16 +211,16 @@ function App() {
     <div className="App font-primary">
       <NavigationBar>
         <div className='mr-10 text-primary' ref={activeNavRef.get('beranda')}>
-            <a className="cursor-pointer" href='#beranda'>Beranda</a>
+            <a className="cursor-pointer" href='#beranda' onClick={(e) => handleNavbarClick(e, 'beranda')}>Beranda</a>
         </div>
         <div className='mr-10 text-white' ref={activeNavRef.get('layanan')}> 
-            <a className="cursor-pointer" href='#layanan'>Layanan</a>
+            <a className="cursor-pointer" href='#layanan' onClick={(e) => handleNavbarClick(e, 'layanan')}>Layanan</a>
         </div>
-        <div className='mr-10 text-white'>
-            <a className="cursor-pointer" href='#portofolio'>Portofolio</a>
+        <div className='mr-10 text-white' ref={activeNavRef.get('portofolio')}>
+            <a className="cursor-pointer" href='#portofolio' onClick={(e) => handleNavbarClick(e, 'portofolio')}>Portofolio</a>
         </div>
         <div className='mr-10 text-white' ref={activeNavRef.get('tentang')}>
-            <a className="cursor-pointer" href='#tentang'>Tentang</a>
+            <a className="cursor-pointer" href='#tentang' onClick={(e) => handleNavbarClick(e, 'tentang')}>Tentang</a>
         </div>
         {/* <p className='text-white font-semibold'>{testiScrollX}</p> */}
       </NavigationBar>
@@ -310,7 +319,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className='bg-zinc-900 pt-20 pb-20'>
+      <section className='bg-zinc-900 pt-20 pb-20' id='portofolio' ref={mainSections.get('portofolio')}>
         <div className='w-4/5 mx-auto flex justify-between items-center'>
           <div className='w-5/12 mr-24'>
             <div>
@@ -429,7 +438,12 @@ function App() {
                 <div className='w-full flex flex-nowrap oveflow-x-auto'>
                   {
                     testimonis.map((testimoni, key) => (
-                      <TestimoniCard userImg={testimoni.userImg} userName={testimoni.userName} userCompany={testimoni.userCompany} testimoni={testimoni.testimoni} key={key} />
+                      <TestimoniCard 
+                        userImg={testimoni.userImg} 
+                        userName={testimoni.userName} 
+                        userCompany={testimoni.userCompany} 
+                        testimoni={testimoni.testimoni} 
+                        key={key} ref={testimoniCard}/>
                     ))
                   }
                 </div>
@@ -480,7 +494,9 @@ function App() {
                 <img className="w-32" src={qlambiLogo} alt="" />
               </div>
               <div className='w-10/12'>
-                <p className='text-white text-xl'>Qlambi studio hadir untuk memberikan solusi berkualitas dan kemudahan dalam urusan desain, sablon, kaos dan sebagainya.</p>
+                <p className='text-white text-xl'>
+                  Qlambi studio hadir untuk memberikan solusi berkualitas dan kemudahan dalam urusan desain, sablon, kaos dan sebagainya.
+                </p>
               </div>
             </div>
             <div className='w-1/3 ml-64'>
