@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from 'react';
-import arrowIcon from '../../assets/arrow.svg'
+import arrowIcon from '../../assets/arrow-right.svg'
 
 function WhyUsDropdown (props: any) {
     const [isActive, setActive] = useState(false)

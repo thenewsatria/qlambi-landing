@@ -1,5 +1,4 @@
-import { LegacyRef, RefObject, useRef, useState } from 'react'
-import reactLogo from './assets/react.svg'
+import {useEffect, useRef, useState} from 'react'
 import jacketPic from './assets/jacket.png'
 import radialBg1 from './assets/radial-bg-1.svg'
 import radialBg2 from './assets/radial-bg-2.svg'
@@ -10,13 +9,18 @@ import qlambiLogo from './assets/qlambi-logo.svg'
 import tiktokIcon from './assets/tiktok.svg'
 import whatsappIcon from './assets/whatsapp.svg'
 import instagramIcon from './assets/instagram.svg'
-import arrowIcon from './assets/arrow.svg'
+import avatarMale from './assets/avatar-male.svg'
+import avatarFemale from './assets/avatar-female.svg'
+import doubleTick from './assets/double-tick.svg'
 
+import arrowRight from './assets/arrow-right.svg'
+import arrowLeft from './assets/arrow-left.svg'
 
 import './App.css'
 import NavigationBar from './components/NavigationBar/NavigationBar'
 import FAQDropdown from './components/FAQdropdown/FAQDropdown'
 import WhyUsDropdown from './components/WhyUsDropdown/WhyUsDropdown'
+import ServiceBox from './components/ServiceBox/ServiceBox'
 
 function App() {
   const mainSections = new Map<string, any> ([
@@ -31,6 +35,21 @@ function App() {
     ['tentang', useRef<HTMLElement>(null)]
   ])
 
+  // run once after mounted
+  useEffect(() => {
+    navigationHightlight()
+    window.addEventListener("scroll", navigationHightlight);
+  }, [])
+
+  const testimoniButtonHandler = (direction: string) => {
+    if (direction == 'left') {
+        scrollableTestimoni.current.scrollLeft -= 500
+    }else if (direction == 'right') {
+      scrollableTestimoni.current.scrollLeft += 500
+    }
+  }
+  
+
   const navigationHightlight = () => {
       let currentPos: number = window.scrollY;
 
@@ -39,23 +58,56 @@ function App() {
         const sectionTop: number = section.current?.offsetTop - 50
         const currentActiveLink = activeNavRef.get(key).current
          
-        if (currentActiveLink != null) {
-          if (currentPos > sectionTop && currentPos <= sectionTop + sectionHeight) {
-            currentActiveLink.classList.add("animate-navbaractive")
-            currentActiveLink.classList.remove("animate-navbarinactive")
-          }else{
-            if (currentActiveLink.classList.contains('animate-navbaractive')){
-              currentActiveLink.classList.add("animate-navbarinactive")
-            }
-            currentActiveLink.classList.remove("animate-navbaractive")
+        if (currentPos > sectionTop && currentPos <= sectionTop + sectionHeight) {
+          currentActiveLink.classList.add("animate-navbaractive")
+          currentActiveLink.classList.remove("animate-navbarinactive")
+        }else{
+          if (currentActiveLink.classList.contains('animate-navbaractive')){
+            currentActiveLink.classList.add("animate-navbarinactive")
           }
+          currentActiveLink.classList.remove("animate-navbaractive")
         }
-        
       })
   }
+  const scrollableTestimoni: any = useRef<HTMLElement>(null)
+  const testimoniLeftButton: any = useRef<HTMLElement>(null)
+  const testimoniRightButton: any = useRef<HTMLElement>(null)
 
-  window.addEventListener("scroll", navigationHightlight);
-  window.addEventListener("load", navigationHightlight)
+
+  // const testimoniCard: any = useRef<HTMLElement>(null)
+  // const testimoniAppender: any = useRef<HTMLElement>(null)
+
+  const services = [
+    {
+      img: jacketPic,
+      serviceName: "Sablon",
+      serviceDesc: "Realisasikan karyamu melalui sablon dengan hasil cetak kualitas tinggi."
+    },
+    {
+      img: jacketPic,
+      serviceName: "Desain",
+      serviceDesc: "Dengan desainer profesional, kami siap membantumu untuk mendapatkan ide-ide yang sangat menarik."
+    },
+    {
+      img: jacketPic,
+      serviceName: "Kaos",
+      serviceDesc: "Terbuat dari bahan kualitas tinggi, memberikan kenyamanan untuk kamu yang memakainya."
+    },
+    {
+      img: jacketPic,
+      serviceName: "Totebag",
+      serviceDesc: "Desain totebag yang up-to-date menyempurnakan tampilanmu menjadi lebih keren."
+    },
+    {
+      img: jacketPic,
+      serviceName: "Celana",
+      serviceDesc: "Terbuat dari material terbaik sehingga nyaman untuk digunakan sehari-hari."
+    },
+    {
+      img: jacketPic,
+      serviceName: "Hoodie",
+      serviceDesc: "Pilihan koleksi hoodie siap memberikan tampilanmu jauh lebih casual dan modis."
+    }]
 
   const faqs = {
     'left': [
@@ -116,6 +168,7 @@ function App() {
     },
   ]
 
+  console.log('rendering')
   return (
     <div className="App font-primary">
       <NavigationBar>
@@ -131,8 +184,10 @@ function App() {
         <div className='mr-10 text-white' ref={activeNavRef.get('tentang')}>
             <a className="cursor-pointer" href='#tentang'>Tentang</a>
         </div>
+        {/* <p className='text-white font-semibold'>{testiScrollX}</p> */}
       </NavigationBar>
       
+      {/* Beranda Section */}
       <section className='bg-black flex justify-center pt-56 pb-20 relative' id='beranda' ref={mainSections.get('beranda')}>
         <div className='absolute top-0 left-0'>
           <img className='w-160' src={radialBg1} alt="" />
@@ -151,8 +206,22 @@ function App() {
                   <button className='bg-slate-800 rounded-full text-white w-6/12 py-3 px-3 mr-8 relative z-10'>Download Pricelist</button>
                   <button className='bg-primary rounded-full text-white w-6/12 py-3 px-3'>Pesan Sekarang</button>
               </div>
+              <div className='flex mt-20'>
+              <div className='mr-20'>
+                <p className='text-4xl text-white font-semibold mb-1'>100+</p>
+                <p className='text-white text-xl'>Produksi</p>
+              </div>
+              <div className='mr-20'>
+                <p className='text-4xl text-white font-semibold mb-1'>50+</p>
+                <p className='text-white text-xl'>Client</p>
+              </div>
+              <div>
+                <p className='text-4xl text-white font-semibold mb-1'>100+</p>
+                <p className='text-white text-xl'>Desain</p>
+              </div>
             </div>
-            <div className='w-1/2 h-[30rem] ml-16 relative'>
+            </div>
+            <div className='w-1/2 h-[50rem] ml-16 relative'>
               <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] overflow-hidden absolute z-10'>
                 <img className='w-full object-cover object-center' src={jacketPic} alt="" />
               </div>
@@ -160,22 +229,9 @@ function App() {
               </div>
             </div>
           </div>
-          <div className='flex mt-20'>
-            <div className='mr-20'>
-              <p className='text-4xl text-white font-semibold mb-1'>100+</p>
-              <p className='text-white text-xl'>Produksi</p>
-            </div>
-            <div className='mr-20'>
-              <p className='text-4xl text-white font-semibold mb-1'>50+</p>
-              <p className='text-white text-xl'>Client</p>
-            </div>
-            <div>
-              <p className='text-4xl text-white font-semibold mb-1'>100+</p>
-              <p className='text-white text-xl'>Desain</p>
-            </div>
-          </div>
         </div>
       </section>
+      {/* Layanan Section */}
       <section className='pt-20 bg-zinc-900 pb-40' id='layanan' ref={mainSections.get('layanan')}>
         <div className='text-center pb-28'>
           <h1 className='text-5xl font-bold text-white'>Layanan <span className='text-primary'>Kami</span></h1>
@@ -188,57 +244,13 @@ function App() {
             <img src={dottedBg1} alt="" />
           </div>
           <div className='grid gap-20 grid-cols-3 grid-rows-2 auto-cols-max auto-rows-max w-9/12'>
-            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
-              <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
-              <p className='text-white font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Sablon</p>
-              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
-                <p className='text-center text-white font-semibold text-lg'>Realisasikan karyamu melalui sablon dengan hasil cetak kualitas tinggi.</p>
-              </div>
-            </div>
-            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
-              <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
-              <p className='text-white font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Desain</p>
-              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
-                <p className='text-center text-white font-semibold text-lg'>Dengan desainer profesional, kami siap membantumu untuk mendapatkan ide-ide yang sangat menarik.</p>
-              </div>
-            </div>
-            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
-              <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
-              <p className='text-white font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Kaos</p>
-              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
-                <p className='text-center text-white font-semibold text-lg'>Terbuat dari bahan kualitas tinggi, memberikan kenyamanan untuk kamu yang memakainya.</p>
-              </div>
-            </div>
-            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
-              <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
-              <p className='text-white font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Totebag</p>
-              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
-                <p className='text-center text-white font-semibold text-lg'>Desain totebag yang <span className='italic'>up-to-date</span> menyempurnakan tampilanmu menjadi lebih keren.</p>
-              </div>
-            </div>
-            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
-              <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
-              <p className='text-white font-bold text-3xl absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Celana</p>
-              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
-                <p className='text-center text-white font-semibold text-lg'>Terbuat dari material terbaik sehingga nyaman untuk digunakan sehari-hari.</p>
-              </div>
-            </div>
-            <div className='group overflow-hidden rounded-3xl relative border-2 border-white h-[27rem]'>
-              <img className='w-full object-cover object-center' src={jacketPic} alt=""/>
-              <div className='w-full h-full bg-zinc-900/50 absolute top-0'></div>
-              <p className='text-white font-bold text-4xl absolute top-3/4 left-1/2 -translate-y-1/2 -translate-x-1/2 group-hover:animate-riseabit animate-setabit'>Hoodie</p>
-              <div className='absolute top-100 group-hover:animate-riseandfadein animate-setandfadeout w-full px-10 mt-14'>
-                <p className='text-center text-white font-semibold text-lg'>Pilihan koleksi hoodie siap memberikan tampilanmu jauh lebih casual dan modis.</p>
-              </div>
-            </div>
+            {services.map((val, key) => ( 
+              <ServiceBox image={val.img} title={val.serviceName} description={val.serviceDesc} key={key} />
+            ))}
           </div>
         </div>
       </section>
+      {/* Why us Section */}
       <section className='bg-black pt-20 pb-20'>
         <div className='text-center mb-32'>
           <h1 className='text-white font-bold text-5xl'>Kenapa <span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>memilih</span> Qlambi Studio?</h1>
@@ -269,6 +281,103 @@ function App() {
           </div>
         </div>
       </section>
+
+
+
+
+      <section className='bg-black pt-20 pb-20'>
+        <div className='w-4/5 mx-auto'>
+          <div>
+            <h1 className='text-primary font-semibold text-3xl mb-5'>Testimoni Kami</h1>
+            <h2 className='text-white font-semibold text-4xl'>Apa kata pelanggan kami?</h2>
+          </div>
+          <div className='mt-10'>
+            <div className='flex justify-end'>
+              <div className='mr-2 cursor-pointer rounded-full' onClick={() => testimoniButtonHandler('left')}>
+                <img className='w-12' src={arrowLeft} alt="" />
+              </div>
+              <div className='ml-2 cursor-pointer rounded-full' onClick={() => testimoniButtonHandler('right')}>
+                <img className='w-12' src={arrowRight} alt="" />
+              </div>
+            </div>
+            <div className='mt-20'>
+              <div className='w-full overflow-x-scroll testimoni-scroll scroll-smooth' ref={scrollableTestimoni} >
+                {/* <div className='w-full flex flex-nowrap oveflow-x-auto' ref={testimoniAppender}> */}
+                <div className='w-full flex flex-nowrap oveflow-x-auto'>
+                  {/* <div className='bg-slate-200 rounded-3xl w-[52rem] mr-14 flex-[0_0_auto] px-16 py-10' ref={testimoniCard} > */}
+                  <div className='bg-slate-200 rounded-3xl w-[52rem] mr-14 flex-[0_0_auto] px-16 py-10'>
+                    <div className='pb-4 pt-5 mb-5'>
+                      <div>
+                        <img className='w-12' src={doubleTick} alt="" />
+                      </div>
+                      <div className='mx-14 py-5 h-[12rem]'>
+                        <p className='text-xl'>Pengerjaan sat set sat set dan rasio price to performancenya sangat tinggi, jadi bisa dibilang sangat-sangat worth it</p>
+                      </div>
+                      <div className='w-full'>
+                        <img className='rotate-180 w-12 ml-auto' src={doubleTick} alt="" />
+                      </div>
+                    </div>
+                    <div className='flex justify-start items-center'>
+                      <div className='overflow-hidden rounded-full bg-red-500'>
+                        <img className='w-14 object-cover object-center' src={avatarMale} alt="" />
+                      </div>
+                      <div className='ml-8'>
+                        <p className='font-semibold text-xl'>Yakob Hidayat - ASN</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='bg-slate-200 rounded-3xl w-[52rem] mr-14 flex-[0_0_auto] px-16 py-10'>
+                    <div className='pb-4 pt-5 mb-5'>
+                      <div>
+                        <img className='w-12' src={doubleTick} alt="" />
+                      </div>
+                      <div className='mx-14 py-5 h-[12rem]'>
+                        <p className='text-xl'>Over all bagus kak, kainnya adem bahannya tebel tapi ga bikin panas, untuk bahan sablonnya good.</p>
+                      </div>
+                      <div className='w-full'>
+                        <img className='rotate-180 w-12 ml-auto' src={doubleTick} alt="" />
+                      </div>
+                    </div>
+                    <div className='flex justify-start items-center'>
+                      <div className='overflow-hidden rounded-full bg-red-500'>
+                        <img className='w-14 object-cover object-center' src={avatarFemale} alt="" />
+                      </div>
+                      <div className='ml-8'>
+                        <p className='font-semibold text-xl'>Karina Putri - ASN</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='bg-slate-200 rounded-3xl w-[52rem] mr-14 flex-[0_0_auto] px-16 py-10'>
+                    <div className='pb-4 pt-5 mb-5'>
+                      <div>
+                        <img className='w-12' src={doubleTick} alt="" />
+                      </div>
+                      <div className='mx-14 py-5 h-[12rem]'>
+                        <p className='text-xl'>Kainnya enak banget dipakai, websitenya juga mudah bagi pengguna baru, sangat user friendly</p>
+                      </div>
+                      <div className='w-full'>
+                        <img className='rotate-180 w-12 ml-auto' src={doubleTick} alt="" />
+                      </div>
+                    </div>
+                    <div className='flex justify-start items-center'>
+                      <div className='overflow-hidden rounded-full bg-red-500'>
+                        <img className='w-14 object-cover object-center' src={avatarMale} alt="" />
+                      </div>
+                      <div className='ml-8'>
+                        <p className='font-semibold text-xl'>Ilham Dwi Very Much Lison - ASN</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
       {/* Tunggu Apa Lagi? Section */}
       <section className='bg-zinc-900 pt-28 pb-48'>
         <div className='w-4/5 mx-auto bg-primary rounded-2xl pb-4 pt-8 relative overflow-hidden'>
@@ -302,6 +411,7 @@ function App() {
           </div>
         </div>
       </section>
+      {/* Footer Section */}
       <footer className='bg-zinc-900 pt-28 pb-16' id='tentang' ref={mainSections.get('tentang')}>
         <div className='flex justify-center'>
           <div className='w-4/5 flex justify-between items-start'>
