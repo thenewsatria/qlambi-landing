@@ -1,8 +1,8 @@
 /* Not displaying scrollbar but keep functionality */
-.testimoni-scroll {
+.hidden-scroll {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-.testimoni-scroll::-webkit-scrollbar {
+.hidden-scroll::-webkit-scrollbar {
     display: none;
 }

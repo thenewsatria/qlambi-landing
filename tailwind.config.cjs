@@ -117,6 +117,14 @@ module.exports = {
                 navbarunscrolled: {
                     from: {backdropFilter: "blur(16px)", backgroundColor: 'rgba(0,0,0,0.6)'},
                     to: {backdropFilter: "blur(0)", backgroundColor: 'transparent'},
+                },
+                slider1: {
+                    from: { transform: "translateX(0)"},
+                    to: { transform: "translateX(-45rem)"}
+                },
+                slider2: {
+                    from: { transform: "translateX(0)"},
+                    to: { transform: "translateX(-112.5rem)"}
                 }
                 // inlinehidden: {
                 //     from: {display: 'inline'},
@@ -145,7 +153,9 @@ module.exports = {
                 navbaractive: "navbaractive 0.3s ease-in-out forwards",
                 navbarinactive: "navbarinactive 0.3s ease-in-out forwards",
                 navbarscrolled: "navbarscrolled 0.3s ease-in-out forwards",
-                navbarunscrolled: "navbarunscrolled 0.3s ease-in-out forwards"
+                navbarunscrolled: "navbarunscrolled 0.3s ease-in-out forwards",
+                portofolioslider1: "slider1 5s linear infinite",
+                portofolioslider2: "slider2 12s linear infinite",
                 // faqanswerhide: 'inlinehidden 0.1s ease-in-out 0.5s forwards',
                 // faqanswershow: 'inlineshow 0.1s ease-in-out forwards'
             },

@@ -11,16 +11,25 @@ import whatsappIcon from './assets/whatsapp.svg'
 import instagramIcon from './assets/instagram.svg'
 import avatarMale from './assets/avatar-male.svg'
 import avatarFemale from './assets/avatar-female.svg'
-import doubleTick from './assets/double-tick.svg'
 
 import arrowRight from './assets/arrow-right.svg'
 import arrowLeft from './assets/arrow-left.svg'
+
+import desain1 from './assets/desain1.png'
+import desain2 from './assets/desain2.png'
+import desain3 from './assets/desain3.png'
+import desain4 from './assets/desain4.png'
+import desain5 from './assets/desain5.png'
+
+import sablon1 from './assets/sablon1.png'
+import sablon2 from './assets/sablon2.png'
 
 import './App.css'
 import NavigationBar from './components/NavigationBar/NavigationBar'
 import FAQDropdown from './components/FAQdropdown/FAQDropdown'
 import WhyUsDropdown from './components/WhyUsDropdown/WhyUsDropdown'
 import ServiceBox from './components/ServiceBox/ServiceBox'
+import TestimoniCard from './components/TestimoniCard/TestimoniCard'
 
 function App() {
   const mainSections = new Map<string, any> ([
@@ -43,9 +52,9 @@ function App() {
 
   const testimoniButtonHandler = (direction: string) => {
     if (direction == 'left') {
-        scrollableTestimoni.current.scrollLeft -= 500
+        scrollableTestimoni.current.scrollLeft -= 840
     }else if (direction == 'right') {
-      scrollableTestimoni.current.scrollLeft += 500
+      scrollableTestimoni.current.scrollLeft += 840
     }
   }
   
@@ -70,8 +79,6 @@ function App() {
       })
   }
   const scrollableTestimoni: any = useRef<HTMLElement>(null)
-  const testimoniLeftButton: any = useRef<HTMLElement>(null)
-  const testimoniRightButton: any = useRef<HTMLElement>(null)
 
 
   // const testimoniCard: any = useRef<HTMLElement>(null)
@@ -166,6 +173,28 @@ function App() {
       "title": "Desain sablon sesuai keinginanmu",
       "description": "Desain sablon semaumu, kami siap realisasikan semuanya" 
     },
+  ]
+
+  const testimonis = [
+    {
+      testimoni: "Pengerjaan sat set sat set dan rasio price to performancenya sangat tinggi, jadi bisa dibilang sangat-sangat worth it",
+      userImg: avatarMale,
+      userName: "Yakob Hidayat",
+      userCompany: "ASN",
+      
+    },
+    {
+      testimoni: "Over all bagus kak, kainnya adem bahannya tebel tapi ga bikin panas, untuk bahan sablonnya good.",
+      userImg: avatarFemale,
+      userName: "Karina Putri",
+      userCompany: "ASN",
+    },
+    {
+      testimoni: "Kainnya enak banget dipakai, websitenya juga mudah bagi pengguna baru, sangat user friendly",
+      userImg: avatarMale,
+      userName: "Ilham Dwi Very Much Lison",
+      userCompany: "ASN",
+    }
   ]
 
   console.log('rendering')
@@ -281,10 +310,105 @@ function App() {
           </div>
         </div>
       </section>
-
-
-
-
+      <section className='bg-zinc-900 pt-20 pb-20'>
+        <div className='w-4/5 mx-auto flex justify-between items-center'>
+          <div className='w-5/12 mr-24'>
+            <div>
+              <h1 className='text-primary font-semibold text-3xl mb-5'>Portofolio</h1>
+              <h2 className='text-white font-semibold text-4xl mb-8'>Ide dan solusi dari kami untuk pelanggan kami. 😊</h2>
+              <h3 className='text-white text-2xl'>Kami berikan yang terbaik dan untuk pelanggan pelanggan kami.</h3>
+              <div className='mt-16'>
+                <button className='text-white bg-primary font-semibold px-12 py-3 text-xl rounded-full'>Download Katalog Portofolio</button>
+              </div>
+            </div>
+          </div>
+          <div className='w-7/12 flex flex-col'>
+            {/* <div className='w-[56rem] overflow-hidden mb-16'>
+              <div className='w-full flex flex-nowrap oveflow-x-auto'>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon2} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon2} alt="" />
+                </div>
+              </div>
+            </div> */}
+            {/* <div className='w-full overflow-x-scroll hidden-scroll scroll-smooth'>
+              <div className='w-full flex flex-nowrap oveflow-x-auto animate-portofolioslider'>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain2} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain3} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain4} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain5} alt="" />
+                </div>
+              </div>
+            </div> */}
+            <div className='w-full overflow-hidden mb-16'>
+              <div className='w-full flex flex-nowrap animate-portofolioslider1'>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden hover:scale-'>
+                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon2} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon2} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
+                </div>
+              </div>
+            </div>
+            <div className='w-full overflow-hidden'>
+              <div className='w-full flex flex-nowrap animate-portofolioslider2'>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain2} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain3} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain4} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain5} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain2} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain3} alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Testimoni Section */}
       <section className='bg-black pt-20 pb-20'>
         <div className='w-4/5 mx-auto'>
           <div>
@@ -301,83 +425,19 @@ function App() {
               </div>
             </div>
             <div className='mt-20'>
-              <div className='w-full overflow-x-scroll testimoni-scroll scroll-smooth' ref={scrollableTestimoni} >
-                {/* <div className='w-full flex flex-nowrap oveflow-x-auto' ref={testimoniAppender}> */}
+              <div className='w-full overflow-x-scroll hidden-scroll scroll-smooth' ref={scrollableTestimoni} >
                 <div className='w-full flex flex-nowrap oveflow-x-auto'>
-                  {/* <div className='bg-slate-200 rounded-3xl w-[52rem] mr-14 flex-[0_0_auto] px-16 py-10' ref={testimoniCard} > */}
-                  <div className='bg-slate-200 rounded-3xl w-[52rem] mr-14 flex-[0_0_auto] px-16 py-10'>
-                    <div className='pb-4 pt-5 mb-5'>
-                      <div>
-                        <img className='w-12' src={doubleTick} alt="" />
-                      </div>
-                      <div className='mx-14 py-5 h-[12rem]'>
-                        <p className='text-xl'>Pengerjaan sat set sat set dan rasio price to performancenya sangat tinggi, jadi bisa dibilang sangat-sangat worth it</p>
-                      </div>
-                      <div className='w-full'>
-                        <img className='rotate-180 w-12 ml-auto' src={doubleTick} alt="" />
-                      </div>
-                    </div>
-                    <div className='flex justify-start items-center'>
-                      <div className='overflow-hidden rounded-full bg-red-500'>
-                        <img className='w-14 object-cover object-center' src={avatarMale} alt="" />
-                      </div>
-                      <div className='ml-8'>
-                        <p className='font-semibold text-xl'>Yakob Hidayat - ASN</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='bg-slate-200 rounded-3xl w-[52rem] mr-14 flex-[0_0_auto] px-16 py-10'>
-                    <div className='pb-4 pt-5 mb-5'>
-                      <div>
-                        <img className='w-12' src={doubleTick} alt="" />
-                      </div>
-                      <div className='mx-14 py-5 h-[12rem]'>
-                        <p className='text-xl'>Over all bagus kak, kainnya adem bahannya tebel tapi ga bikin panas, untuk bahan sablonnya good.</p>
-                      </div>
-                      <div className='w-full'>
-                        <img className='rotate-180 w-12 ml-auto' src={doubleTick} alt="" />
-                      </div>
-                    </div>
-                    <div className='flex justify-start items-center'>
-                      <div className='overflow-hidden rounded-full bg-red-500'>
-                        <img className='w-14 object-cover object-center' src={avatarFemale} alt="" />
-                      </div>
-                      <div className='ml-8'>
-                        <p className='font-semibold text-xl'>Karina Putri - ASN</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='bg-slate-200 rounded-3xl w-[52rem] mr-14 flex-[0_0_auto] px-16 py-10'>
-                    <div className='pb-4 pt-5 mb-5'>
-                      <div>
-                        <img className='w-12' src={doubleTick} alt="" />
-                      </div>
-                      <div className='mx-14 py-5 h-[12rem]'>
-                        <p className='text-xl'>Kainnya enak banget dipakai, websitenya juga mudah bagi pengguna baru, sangat user friendly</p>
-                      </div>
-                      <div className='w-full'>
-                        <img className='rotate-180 w-12 ml-auto' src={doubleTick} alt="" />
-                      </div>
-                    </div>
-                    <div className='flex justify-start items-center'>
-                      <div className='overflow-hidden rounded-full bg-red-500'>
-                        <img className='w-14 object-cover object-center' src={avatarMale} alt="" />
-                      </div>
-                      <div className='ml-8'>
-                        <p className='font-semibold text-xl'>Ilham Dwi Very Much Lison - ASN</p>
-                      </div>
-                    </div>
-                  </div>
+                  {
+                    testimonis.map((testimoni, key) => (
+                      <TestimoniCard userImg={testimoni.userImg} userName={testimoni.userName} userCompany={testimoni.userCompany} testimoni={testimoni.testimoni} key={key} />
+                    ))
+                  }
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-
-
-
       {/* Tunggu Apa Lagi? Section */}
       <section className='bg-zinc-900 pt-28 pb-48'>
         <div className='w-4/5 mx-auto bg-primary rounded-2xl pb-4 pt-8 relative overflow-hidden'>
