@@ -454,16 +454,16 @@ function App() {
         </div>
       </section>
       {/* Tunggu Apa Lagi? Section */}
-      <section className='bg-zinc-900 pt-28 pb-48'>
-        <div className='w-4/5 mx-auto bg-primary rounded-2xl pb-4 pt-8 relative overflow-hidden'>
-          <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>
+      <section className='bg-zinc-900 pt-12 pb-8 md:pt-16 md:pb-12 lg:pt-14 lg:pb-14 xl:pt-20 xl:pb-32 2xl:pt-28 2xl:pb-36'>
+        <div className='w-4/5 mx-auto bg-primary rounded-lg pt-6 md:pt-10 2xl:rounded-2xl pb-5 md:pb-7 xl:pb-12 2xl:pt-8 relative overflow-hidden'>
+          <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-10/12 md:w-auto'>
             <img className='object-cover object-center animate-spin' src={radialBg4} alt="" />
           </div>
-          <div className='mt-24 mb-14 relative z-10'>
-            <h1 className='text-center text-5xl text-white font-semibold mb-10'>Tunggu apa lagi?</h1>
-            <h2 className='text-center text-3xl text-white font-semibold'>Segera hubungi kami untuk mendapatkan informasi lebih lanjut.</h2>
-            <div className='flex justify-center mt-12'>
-              <button className='mx-auto px-28 text-primary text-xl font-semibold bg-white py-4 rounded-full'>Hubungi</button>
+          <div className='px-6 md:px-12 2xl:px-24 lg:mt-5 xl:mt-10 2xl:mt-20 2xl:mb-5 relative z-10'>
+            <h1 className='text-center text-xl md:text-3xl lg:text-4xl text-white font-semibold mb-4 md:mb-8 xl:mb-10 2xl:text-5xl 2xl:mb-16'>Tunggu apa lagi?</h1>
+            <h2 className='text-center text-xs md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-white font-semibold'>Segera hubungi kami untuk mendapatkan informasi lebih lanjut.</h2>
+            <div className='flex justify-center mt-4 md:mt-6 xl:mt-8 2xl:mt-10'>
+              <button className='text-xs md:text-base lg:text-base py-2 px-10 md:px-12 mx-auto 2xl:px-20 text-primary 2xl:text-xl font-semibold bg-white 2xl:py-4 rounded-full'>Pesan Sekarang</button>
             </div>
           </div>
         </div>
