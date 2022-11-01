@@ -486,68 +486,70 @@ function App() {
         </div>
       </section>
       {/* Footer Section */}
-      <footer className='bg-zinc-900 pt-28 pb-16' id='tentang' ref={mainSections.get('tentang')}>
+      <footer className='bg-zinc-900 pt-20 md:pt-28 pb-16' id='tentang' ref={mainSections.get('tentang')}>
         <div className='flex justify-center'>
-          <div className='w-4/5 flex justify-between items-start'>
-            <div className='w-1/3'>
-              <div className='mb-8'>
-                <img className="w-32" src={qlambiLogo} alt="" />
+          <div className='w-4/5 flex flex-col xl:flex-row justify-between items-start'>
+            <div className='mb-20 xl:w-1/3 xl:mb-0'>
+              <div className='mb-6 lg:mb-8'>
+                <img className="w-28 md:w-32 lg:w-36" src={qlambiLogo} alt="" />
               </div>
-              <div className='w-10/12'>
-                <p className='text-white text-xl'>
+              <div className='w-11/12 lg:w-10/12 xl:w-11/12'>
+                <p className='text-white text-lg md:text-xl'>
                   Qlambi studio hadir untuk memberikan solusi berkualitas dan kemudahan dalam urusan desain, sablon, kaos dan sebagainya.
                 </p>
               </div>
             </div>
-            <div className='w-1/3 ml-64'>
-              <div className='mb-12'>
-                <p className='text-white font-semibold text-xl'>Sosial Media</p>
-              </div>
-              <div className='flex items-center mb-6'>
-                <div className='mr-4'>
-                  <img className='w-7' src={instagramIcon} alt="" />
+            <div className='mb-20 xl:mb-0 xl:w-1/3 xl:flex xl:flex-col xl:items-center'>
+              <div>
+                <div className='mb-8 2xl:mb-12'>
+                  <p className='text-white font-semibold text-xl'>Sosial Media</p>
                 </div>
-                <div>
-                  <p className='text-white text-xl'>Instagram</p>
+                <div className='flex items-center mb-6'>
+                  <div className='mr-4'>
+                    <img className='w-6 md:w-7' src={instagramIcon} alt="" />
+                  </div>
+                  <div>
+                    <p className='text-white text-lg md:text-xl'>Instagram</p>
+                  </div>
                 </div>
-              </div>
-              <div className='flex items-center mb-6'>
-                <div className='mr-4'>
-                  <img className='w-7' src={tiktokIcon} alt="" />
+                <div className='flex items-center mb-6'>
+                  <div className='mr-4'>
+                    <img className='w-6 md:w-7' src={tiktokIcon} alt="" />
+                  </div>
+                  <div>
+                    <p className='text-white text-lg md:text-xl'>Tiktok</p>
+                  </div>
                 </div>
-                <div>
-                  <p className='text-white text-xl'>Tiktok</p>
-                </div>
-              </div>
-              <div className='flex items-center'>
-                <div className='mr-4'>
-                  <img className='w-7' src={whatsappIcon} alt="" />
-                </div>
-                <div>
-                  <p className='text-white text-xl'>Whatsapp</p>
+                <div className='flex items-center'>
+                  <div className='mr-4'>
+                    <img className='w-6 md:w-7' src={whatsappIcon} alt="" />
+                  </div>
+                  <div>
+                    <p className='text-white text-lg md:text-xl'>Whatsapp</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className='w-1/3'>
-              <div className='mb-12'>
+            <div className='xl:w-1/3'>
+              <div className='mb-8 2xl:mb-12'>
                 <p className='text-white font-semibold text-xl'>Alamat</p>
               </div>
               <div>
                 <div className='mb-7'>
-                  <p className='text-white text-xl'>+62 8 985 958 135</p>
+                  <p className='text-white text-lg md:text-xl'>+62 8 985 958 135</p>
                 </div>
                 <div className='mb-7'>
-                  <p className='text-white text-xl'>Jalan Jagir Sidomukti 1 No.21, Jagir, Wonokromo, Kota Surabaya</p>
+                  <p className='text-white text-lg md:text-xl'>Jalan Jagir Sidomukti 1 No.21, Jagir, Wonokromo, Kota Surabaya</p>
                 </div>
                 <div>
-                  <p className='text-white text-xl'>qlambistudio@gmail.com</p>
+                  <p className='text-white text-lg md:text-xl'>qlambistudio@gmail.com</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className='mt-28'>
-          <p className='text-white text-xl text-center'>&copy; 2022 Qlambi Studio</p>
+          <p className='text-white text-lg md:text-xl text-center'>&copy; 2022 Qlambi Studio</p>
         </div>
       </footer>
     </div>
