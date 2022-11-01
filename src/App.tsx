@@ -51,11 +51,14 @@ function App() {
   const testimoniCard: any = useRef<HTMLElement>(null)
   
   const testimoniButtonHandler = (direction: string) => {
-    const testimoniCardLegth = testimoniCard.current.offsetWidth
+    const testimoniCardLength = testimoniCard.current.offsetWidth
+    const testimoniStyle = window.getComputedStyle(testimoniCard.current)
+    const scrollAmount: number = testimoniCardLength + parseFloat(testimoniStyle.getPropertyValue('margin-right'))
+
     if (direction == 'left') {
-      scrollableTestimoni.current.scrollLeft -= testimoniCardLegth
+      scrollableTestimoni.current.scrollLeft -= scrollAmount
     }else if (direction == 'right') {
-      scrollableTestimoni.current.scrollLeft += testimoniCardLegth
+      scrollableTestimoni.current.scrollLeft += scrollAmount
     }
   }
   
@@ -202,7 +205,7 @@ function App() {
     {
       testimoni: "Kainnya enak banget dipakai, websitenya juga mudah bagi pengguna baru, sangat user friendly",
       userImg: avatarMale,
-      userName: "Ilham Dwi Very Much Lison",
+      userName: "Ilham Dwi M",
       userCompany: "ASN",
     }
   ]
@@ -320,6 +323,7 @@ function App() {
           </div>
         </div>
       </section>
+      {/* Portofolio Section */}
       <section className='bg-zinc-900 pt-20 pb-20' id='portofolio' ref={mainSections.get('portofolio')}>
         <div className='w-4/5 mx-auto flex justify-between items-center'>
           <div className='w-5/12 mr-24'>
@@ -422,10 +426,10 @@ function App() {
       <section className='bg-black pt-20 pb-20'>
         <div className='w-4/5 mx-auto'>
           <div>
-            <h1 className='text-primary font-semibold text-3xl mb-5'>Testimoni Kami</h1>
-            <h2 className='text-white font-semibold text-4xl'>Apa kata pelanggan kami?</h2>
+            <h1 className='text-primary font-semibold text-2xl lg:text-3xl mb-5'>Testimoni Kami</h1>
+            <h2 className='text-white font-semibold text-3xl lg:text-4xl'>Apa kata pelanggan kami?</h2>
           </div>
-          <div className='mt-10'>
+          <div className='mt-20 2xl:mt-10'>
             <div className='flex justify-end'>
               <div className='mr-2 cursor-pointer rounded-full' onClick={() => testimoniButtonHandler('left')}>
                 <img className='w-12' src={arrowLeft} alt="" />
@@ -434,7 +438,7 @@ function App() {
                 <img className='w-12' src={arrowRight} alt="" />
               </div>
             </div>
-            <div className='mt-20'>
+            <div className='mt-12 2xl:mt-20'>
               <div className='w-full overflow-x-scroll hidden-scroll scroll-smooth' ref={scrollableTestimoni} >
                 <div className='w-full flex flex-nowrap oveflow-x-auto'>
                   {
