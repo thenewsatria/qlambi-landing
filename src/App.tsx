@@ -30,6 +30,7 @@ import FAQDropdown from './components/FAQdropdown/FAQDropdown'
 import WhyUsDropdown from './components/WhyUsDropdown/WhyUsDropdown'
 import ServiceBox from './components/ServiceBox/ServiceBox'
 import TestimoniCard from './components/TestimoniCard/TestimoniCard'
+import FAQDropdown2 from './components/FAQDropdown2/FAQDropdown2'
 
 function App() {
   const mainSections = new Map<string, any> ([
@@ -142,7 +143,7 @@ function App() {
     ],
     'right': [
       {
-        'question':'Apakah bisa dikirim luar kota?',
+        'question':'Apakah bisa dikirim ke luar kota?',
         'answer':'Tentu bisa, kami melayani pengiriman untuk seluruh Indonesia ya.'
       },
       {
@@ -150,7 +151,7 @@ function App() {
         'answer':'Waktu produksi kami hanya berkisar antara 1-2 hari saja.'
       },
       {
-        'question':'Apakah produksi bisa dalam jumlah banyak?',
+        'question':'Apakah bisa produksi dalam jumlah besar?',
         'answer':'Sangat bisa. Tentunya dengan harga yang jauh lebih murah.'
       },
     ]
@@ -469,18 +470,19 @@ function App() {
       </section>
       {/* FAQ section */}
       <section className='bg-black pt-20 pb-20'>
-        <div className='text-center mb-32'>
-          <h1 className='text-white text-5xl font-bold'>Frequently A<span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>sked Qu</span>estion (FAQ)</h1>
+        <div className='text-center mb-20 xl:mb-32'>
+          <h1 className='text-white text-3xl lg:text-4xl font-bold xl:hidden'>Frequently Asked Question <span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>(FAQ)</span></h1>
+          <h1 className='text-white text-4xl font-bold hidden xl:inline'>Frequently A<span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>sked Qu</span>estion (FAQ)</h1>
         </div>
-        <div className='w-9/12 mx-auto flex justify-between items-start'>
-          <div className='w-1/2 mr-10'>
+        <div className='w-4/5 md:w-10/12 xl:w-9/12 mx-auto flex flex-col md:flex-row justify-between items-start'>
+          <div className='md:w-1/2 md:mr-3 lg:mr-4 xl:mr-8'>
             {faqs.left.map((faq, id) => (
-              <FAQDropdown question={faq.question} answer={faq.answer} key={id} />
+              <FAQDropdown2 question={faq.question} answer={faq.answer} key={id} />
             ))}
           </div>
-          <div className='w-1/2 ml-10'>
+          <div className='md:w-1/2 md:ml-3 lg:ml-4 xl:ml-8'>
             {faqs.right.map((faq, id) => (
-              <FAQDropdown question={faq.question} answer={faq.answer} key={id} />
+              <FAQDropdown2 question={faq.question} answer={faq.answer} key={id} />
             ))}
           </div>
         </div>
@@ -488,68 +490,70 @@ function App() {
       {/* Footer Section */}
       <footer className='bg-zinc-900 pt-20 md:pt-28 pb-16' id='tentang' ref={mainSections.get('tentang')}>
         <div className='flex justify-center'>
-          <div className='w-4/5 flex flex-col xl:flex-row justify-between items-start'>
-            <div className='mb-20 xl:w-1/3 xl:mb-0'>
+          <div className='w-4/5 flex flex-col lg:flex-row justify-between items-start'>
+            <div className='mb-20 lg:w-1/3 lg:mb-0'>
               <div className='mb-6 lg:mb-8'>
-                <img className="w-28 md:w-32 lg:w-36" src={qlambiLogo} alt="" />
+                <img className="w-28 md:w-32 xl:w-28 2xl:w-36" src={qlambiLogo} alt="" />
               </div>
-              <div className='w-11/12 lg:w-10/12 xl:w-11/12'>
-                <p className='text-white text-lg md:text-xl'>
+              <div className='w-11/12 md:w-8/12 lg:w-8/12 lg:w-10/12'>
+                <p className='text-white text-base md:text-lg lg:text-base 2xl:text-lg'>
                   Qlambi studio hadir untuk memberikan solusi berkualitas dan kemudahan dalam urusan desain, sablon, kaos dan sebagainya.
                 </p>
               </div>
             </div>
-            <div className='mb-20 xl:mb-0 xl:w-1/3 xl:flex xl:flex-col xl:items-center'>
+            <div className='mb-20 lg:mb-0 lg:w-1/3 lg:flex lg:flex-col lg:items-center'>
               <div>
-                <div className='mb-8 2xl:mb-12'>
-                  <p className='text-white font-semibold text-xl'>Sosial Media</p>
+                <div className='mb-8 lg:mb-12'>
+                  <p className='text-white font-semibold text-lg 2xl:text-xl'>Sosial Media</p>
                 </div>
-                <div className='flex items-center mb-6'>
+                <div className='flex items-center mb-4 lg:mb-8'>
                   <div className='mr-4'>
-                    <img className='w-6 md:w-7' src={instagramIcon} alt="" />
+                    <img className='w-5 md:w-7 lg:w-5 2xl:w-7' src={instagramIcon} alt="" />
                   </div>
                   <div>
-                    <p className='text-white text-lg md:text-xl'>Instagram</p>
+                    <p className='text-white text-base md:text-lg lg:text-base 2xl:text-lg'>Instagram</p>
                   </div>
                 </div>
-                <div className='flex items-center mb-6'>
+                <div className='flex items-center mb-4 lg:mb-8'>
                   <div className='mr-4'>
-                    <img className='w-6 md:w-7' src={tiktokIcon} alt="" />
+                    <img className='w-5 md:w-7 lg:w-5 2xl:w-7' src={tiktokIcon} alt="" />
                   </div>
                   <div>
-                    <p className='text-white text-lg md:text-xl'>Tiktok</p>
+                    <p className='text-white text-base md:text-lg lg:text-base 2xl:text-lg'>Tiktok</p>
                   </div>
                 </div>
                 <div className='flex items-center'>
                   <div className='mr-4'>
-                    <img className='w-6 md:w-7' src={whatsappIcon} alt="" />
+                    <img className='w-5 md:w-7 lg:w-5 2xl:w-7' src={whatsappIcon} alt="" />
                   </div>
                   <div>
-                    <p className='text-white text-lg md:text-xl'>Whatsapp</p>
+                    <p className='text-white text-base md:text-lg lg:text-base 2xl:text-lg'>Whatsapp</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className='xl:w-1/3'>
-              <div className='mb-8 2xl:mb-12'>
-                <p className='text-white font-semibold text-xl'>Alamat</p>
-              </div>
+            <div className='lg:w-1/3 lg:ml-5 xl:ml-7'>
               <div>
-                <div className='mb-7'>
-                  <p className='text-white text-lg md:text-xl'>+62 8 985 958 135</p>
-                </div>
-                <div className='mb-7'>
-                  <p className='text-white text-lg md:text-xl'>Jalan Jagir Sidomukti 1 No.21, Jagir, Wonokromo, Kota Surabaya</p>
+                <div className='mb-8 lg:mb-12'>
+                  <p className='text-white font-semibold text-lg 2xl:text-xl'>Alamat</p>
                 </div>
                 <div>
-                  <p className='text-white text-lg md:text-xl'>qlambistudio@gmail.com</p>
+                  <div className='mb-5 xl:mb-8'>
+                    <p className='text-white text-base md:text-lg lg:text-base'>+62 8 985 958 135</p>
+                  </div>
+                  <div className='mb-5 xl:mb-8'>
+                    <p className='text-white text-base md:text-lg lg:text-base'>Jalan Jagir Sidomukti 1 No.21, Jagir, Wonokromo, Kota Surabaya</p>
+                  </div>
+                  <div>
+                    <p className='text-white text-base md:text-lg lg:text-base'>qlambistudio@gmail.com</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className='mt-28'>
-          <p className='text-white text-lg md:text-xl text-center'>&copy; 2022 Qlambi Studio</p>
+          <p className='text-white text-base md:text-lg lg:text-base text-center 2xl:text-lg'>&copy; 2022 Qlambi Studio</p>
         </div>
       </footer>
     </div>

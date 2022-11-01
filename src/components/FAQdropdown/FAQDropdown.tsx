@@ -84,14 +84,14 @@ function FAQDropdown(props: any) {
 
     }
     return (
-        <div className='rounded-3xl bg-slate-200 mb-12 px-12 py-6 group'>
+        <div className='rounded-xl xl:rounded-3xl bg-slate-200 mb-12 px-6 py-3 xl:px-12 xl:py-6'>
             <div className='flex justify-between items-center'>
-                <p className='font-semibold text-2xl mr-16'>{props.question}</p>
+                <p className='font-semibold text-sm mr-4 xl:text-2xl xl:mr-16'>{props.question}</p>
                 <button onClick={handleClick}>
-                    <img className='w-8' src={plusIcon} alt="" ref={iconRef} />
+                    <img className='w-5 xl:w-8' src={plusIcon} alt="" ref={iconRef} />
                 </button>
             </div>
-            <div className="pr-20" ref={dialogRef}>
+            <div className="xl:pr-20" ref={dialogRef}>
                 <p className="text-[0rem] opacity-0" ref={textRef}>{props.answer}</p>
             </div>
         </div>
