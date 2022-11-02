@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef} from 'react'
 import jacketPic from './assets/jacket.png'
 import radialBg1 from './assets/radial-bg-1.svg'
 import radialBg2 from './assets/radial-bg-2.svg'
@@ -9,6 +9,16 @@ import qlambiLogo from './assets/qlambi-logo.svg'
 import tiktokIcon from './assets/tiktok.svg'
 import whatsappIcon from './assets/whatsapp.svg'
 import instagramIcon from './assets/instagram.svg'
+
+import service1 from './assets/service1.png'
+import service2 from './assets/service2.png'
+import service3 from './assets/service3.png'
+import service4 from './assets/service4.png'
+import service5 from './assets/service5.png'
+import service6 from './assets/service6.png'
+
+import testimoni1 from './assets/testimoniImg1.png'
+import testimoni2 from './assets/testimoniImg2.png'
 import avatarMale from './assets/avatar-male.svg'
 import avatarFemale from './assets/avatar-female.svg'
 
@@ -21,12 +31,14 @@ import desain3 from './assets/desain3.png'
 import desain4 from './assets/desain4.png'
 import desain5 from './assets/desain5.png'
 
-import sablon1 from './assets/sablon1.png'
-import sablon2 from './assets/sablon2.png'
+import sablon1 from './assets/porto_sablon1.png'
+import sablon2 from './assets/porto_sablon2.png'
+import sablon3 from './assets/porto_sablon3.png'
+
+import whyUs from './assets/whyUs.png'
 
 import './App.css'
 import NavigationBar from './components/NavigationBar/NavigationBar'
-import FAQDropdown from './components/FAQdropdown/FAQDropdown'
 import WhyUsDropdown from './components/WhyUsDropdown/WhyUsDropdown'
 import ServiceBox from './components/ServiceBox/ServiceBox'
 import TestimoniCard from './components/TestimoniCard/TestimoniCard'
@@ -99,32 +111,32 @@ function App() {
   
   const services = [
     {
-      img: jacketPic,
+      img: service1,
       serviceName: "Sablon",
       serviceDesc: "Realisasikan karyamu melalui sablon dengan hasil cetak kualitas tinggi."
     },
     {
-      img: jacketPic,
+      img: service2,
       serviceName: "Desain",
       serviceDesc: "Dengan desainer profesional, kami siap membantumu untuk mendapatkan ide-ide yang sangat menarik."
     },
     {
-      img: jacketPic,
+      img: service3,
       serviceName: "Kaos",
       serviceDesc: "Terbuat dari bahan kualitas tinggi, memberikan kenyamanan untuk kamu yang memakainya."
     },
     {
-      img: jacketPic,
+      img: service4,
       serviceName: "Totebag",
       serviceDesc: "Desain totebag yang up-to-date menyempurnakan tampilanmu menjadi lebih keren."
     },
     {
-      img: jacketPic,
+      img: service5,
       serviceName: "Celana",
       serviceDesc: "Terbuat dari material terbaik sehingga nyaman untuk digunakan sehari-hari."
     },
     {
-      img: jacketPic,
+      img: service6,
       serviceName: "Hoodie",
       serviceDesc: "Pilihan koleksi hoodie siap memberikan tampilanmu jauh lebih casual dan modis."
     }]
@@ -190,23 +202,29 @@ function App() {
 
   const testimonis = [
     {
+      testimoni: "Yang paling saya suka juga admin nya ramah dan mau dengerin apa yang kita mau. Paling bener bikin desain di sini , next repeat order kesini lagi ka untuk produk aku selanjut nya 👍🏻",
+      userImg: testimoni1,
+      userName: "Frb Clothes",
+      userCompany: "Brand Clothing",
+      
+    },
+    {
+      testimoni: "Sablonnya bagus dan awet, dicuci nggak luntur disetrika juga nggak nempel nempel. Qlambi studio mantappp",
+      userImg: testimoni2,
+      userName: "KPP Pratama Surabaya Mulyorejo",
+      userCompany: null,
+    },
+    {
       testimoni: "Pengerjaan sat set sat set dan rasio price to performancenya sangat tinggi, jadi bisa dibilang sangat-sangat worth it",
       userImg: avatarMale,
       userName: "Yakob Hidayat",
       userCompany: "ASN",
-      
     },
     {
       testimoni: "Over all bagus kak, kainnya adem bahannya tebel tapi ga bikin panas, untuk bahan sablonnya good.",
       userImg: avatarFemale,
       userName: "Karina Putri",
-      userCompany: "ASN",
-    },
-    {
-      testimoni: "Kainnya enak banget dipakai, websitenya juga mudah bagi pengguna baru, sangat user friendly",
-      userImg: avatarMale,
-      userName: "Ilham Dwi M",
-      userCompany: "ASN",
+      userCompany: "Pelajar",
     }
   ]
 
@@ -315,7 +333,7 @@ function App() {
             </div> */}
             <div className='w-1/2 ml-14 relative h-screen'>
               <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] overflow-hidden absolute z-10 top-0 left-0'>
-                <img className='w-full object-cover object-left' src={jacketPic} alt="" />
+                <img className='w-full object-cover object-left' src={whyUs} alt="" />
               </div>
               <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] absolute border-4 border-white bottom-[2rem] right-0 border-dashed'>
               </div>
@@ -325,6 +343,101 @@ function App() {
       </section>
       {/* Portofolio Section */}
       <section className='bg-zinc-900 pt-20 pb-20' id='portofolio' ref={mainSections.get('portofolio')}>
+        <div className='w-5/6 mx-auto flex flex-col xl:flex-row justify-between items-center'>
+          <div className='w-full mb-20 2xl:mb-0 xl:w-5/12 xl:mr-24'>
+            <div>
+              <h1 className='text-primary font-semibold text-2xl lg:text-3xl xl:text-2xl 2xl:text-3xl mb-5'>Portofolio</h1>
+              <h2 className='text-white font-semibold text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl mb-8'>Ide dan solusi dari kami untuk pelanggan kami. 😊</h2>
+              <h3 className='text-white text-base md:text-lg lg:text-xl xl:text-lg 2xl:text-xl'>Kami berikan yang terbaik dan untuk pelanggan pelanggan kami.</h3>
+              <div className='mt-12 flex justify-center xl:justify-start xl:items-center xl:mt-16'>
+                <button className='text-white bg-primary font-semibold px-10 md:px-12 xl:px-10 2xl:px-12 py-3 text-sm md:text-base lg:text-lg xl:text-base 2xl:text-lg rounded-full'>Download Katalog Portofolio</button>
+              </div>
+            </div>
+          </div>
+          <div className='w-full xl:w-7/12 flex flex-col'>
+            <div className='w-full overflow-hidden mb-8 md:mb-12 xl:mb-16'>
+              <div className='w-full flex flex-nowrap animate-portofolioslider1 md:animate-portofolioslider1md lg:animate-portofolioslider1lg xl:animate-portofolioslider1xl 2xl:animate-portofolioslider12xl'>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                  w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                  bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden hover:scale-'>
+                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl
+                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon2} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon3} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon2} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={sablon3} alt="" />
+                </div>
+              </div>
+            </div>
+            <div className='w-full overflow-hidden'>
+              <div className='w-full flex flex-nowrap animate-portofolioslider2 md:animate-portofolioslider2md lg:animate-portofolioslider2lg xl:animate-portofolioslider2xl 2xl:animate-portofolioslider22xl'>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain2} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain3} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain4} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain5} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain1} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain2} alt="" />
+                </div>
+                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
+                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                  <img className='object-cover object-center w-full' src={desain3} alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Portofolio Section sebelum responsive */}
+      {/* <section className='bg-zinc-900 pt-20 pb-20' id='portofolio' ref={mainSections.get('portofolio')}>
         <div className='w-4/5 mx-auto flex justify-between items-center'>
           <div className='w-5/12 mr-24'>
             <div>
@@ -337,41 +450,6 @@ function App() {
             </div>
           </div>
           <div className='w-7/12 flex flex-col'>
-            {/* <div className='w-[56rem] overflow-hidden mb-16'>
-              <div className='w-full flex flex-nowrap oveflow-x-auto'>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={sablon2} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={sablon2} alt="" />
-                </div>
-              </div>
-            </div> */}
-            {/* <div className='w-full overflow-x-scroll hidden-scroll scroll-smooth'>
-              <div className='w-full flex flex-nowrap oveflow-x-auto animate-portofolioslider'>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain1} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain2} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain3} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain4} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain5} alt="" />
-                </div>
-              </div>
-            </div> */}
             <div className='w-full overflow-hidden mb-16'>
               <div className='w-full flex flex-nowrap animate-portofolioslider1'>
                 <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden hover:scale-'>
@@ -421,13 +499,13 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Testimoni Section */}
       <section className='bg-black pt-20 pb-20'>
-        <div className='w-4/5 mx-auto'>
+        <div className='w-5/6 mx-auto'>
           <div>
-            <h1 className='text-primary font-semibold text-2xl lg:text-3xl mb-5'>Testimoni Kami</h1>
-            <h2 className='text-white font-semibold text-3xl lg:text-4xl'>Apa kata pelanggan kami?</h2>
+            <h1 className='text-primary font-semibold text-2xl lg:text-3xl xl:text-2xl 2xl:text-3xl mb-5'>Testimoni Kami</h1>
+            <h2 className='text-white font-semibold text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl'>Apa kata pelanggan kami?</h2>
           </div>
           <div className='mt-20 2xl:mt-10'>
             <div className='flex justify-end'>
@@ -459,13 +537,13 @@ function App() {
       </section>
       {/* Tunggu Apa Lagi? Section */}
       <section className='bg-zinc-900 pt-12 pb-8 md:pt-16 md:pb-12 lg:pt-14 lg:pb-14 xl:pt-20 xl:pb-32 2xl:pt-28 2xl:pb-36'>
-        <div className='w-4/5 mx-auto bg-primary rounded-lg pt-6 md:pt-10 2xl:rounded-2xl pb-5 md:pb-7 xl:pb-12 2xl:pt-8 relative overflow-hidden'>
+        <div className='w-5/6 mx-auto bg-primary rounded-lg pt-6 md:pt-10 2xl:rounded-2xl pb-5 md:pb-7 xl:pb-12 2xl:pt-8 relative overflow-hidden'>
           <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-10/12 md:w-auto'>
             <img className='object-cover object-center animate-spin' src={radialBg4} alt="" />
           </div>
           <div className='px-6 md:px-12 2xl:px-24 lg:mt-5 xl:mt-10 2xl:mt-20 2xl:mb-5 relative z-10'>
-            <h1 className='text-center text-xl md:text-3xl lg:text-4xl text-white font-semibold mb-4 md:mb-8 xl:mb-10 2xl:text-5xl 2xl:mb-16'>Tunggu apa lagi?</h1>
-            <h2 className='text-center text-xs md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-white font-semibold'>Segera hubungi kami untuk mendapatkan informasi lebih lanjut.</h2>
+            <h1 className='text-center text-xl md:text-3xl lg:text-4xl xl:text-3xl text-white font-semibold mb-4 md:mb-8 xl:mb-10 2xl:text-5xl 2xl:mb-16'>Tunggu apa lagi?</h1>
+            <h2 className='text-center text-xs md:text-base lg:text-lg xl:text-lg 2xl:text-2xl text-white font-semibold'>Segera hubungi kami untuk mendapatkan informasi lebih lanjut.</h2>
             <div className='flex justify-center mt-4 md:mt-6 xl:mt-8 2xl:mt-10'>
               <button className='text-xs md:text-base lg:text-base py-2 px-10 md:px-12 mx-auto 2xl:px-20 text-primary 2xl:text-xl font-semibold bg-white 2xl:py-4 rounded-full'>Pesan Sekarang</button>
             </div>
@@ -476,9 +554,9 @@ function App() {
       <section className='bg-black pt-20 pb-20'>
         <div className='text-center mb-20 xl:mb-32'>
           <h1 className='text-white text-3xl lg:text-4xl font-bold xl:hidden'>Frequently Asked Question <span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>(FAQ)</span></h1>
-          <h1 className='text-white text-4xl font-bold hidden xl:inline'>Frequently A<span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>sked Qu</span>estion (FAQ)</h1>
+          <h1 className='text-white text-3xl 2xl:text-4xl font-bold hidden xl:inline'>Frequently A<span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>sked Qu</span>estion (FAQ)</h1>
         </div>
-        <div className='w-4/5 md:w-10/12 xl:w-9/12 mx-auto flex flex-col md:flex-row justify-between items-start'>
+        <div className='w-5/6 md:w-10/12 xl:w-9/12 mx-auto flex flex-col md:flex-row justify-between items-start'>
           <div className='md:w-1/2 md:mr-3 lg:mr-4 xl:mr-8'>
             {faqs.left.map((faq, id) => (
               <FAQDropdown2 question={faq.question} answer={faq.answer} key={id} />
@@ -494,7 +572,7 @@ function App() {
       {/* Footer Section */}
       <footer className='bg-zinc-900 pt-20 md:pt-28 pb-16' id='tentang' ref={mainSections.get('tentang')}>
         <div className='flex justify-center'>
-          <div className='w-4/5 flex flex-col lg:flex-row justify-between items-start'>
+          <div className='w-5/6 flex flex-col lg:flex-row justify-between items-start'>
             <div className='mb-20 lg:w-1/3 lg:mb-0'>
               <div className='mb-6 lg:mb-8'>
                 <img className="w-28 md:w-32 xl:w-28 2xl:w-36" src={qlambiLogo} alt="" />

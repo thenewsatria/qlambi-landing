@@ -7,7 +7,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: '#FF024C'
+                // primary: '#FF024C'
+                primary: '#C81C28'
             },
             fontFamily: {
                 primary: ['"Poppins"', 'sans-serif']
@@ -154,10 +155,10 @@ module.exports = {
                 },
                 navbaractive: {
                     from: {color: "rgb(255 255 255)"},
-                    to: {color: "#FF024C"},
+                    to: {color: "#C81C28"},
                 },
                 navbarinactive: {
-                    from: {color: "#FF024C"},
+                    from: {color: "#C81C28"},
                     to: {color: "rgb(255 255 255)"},
                 },
                 navbarscrolled: {
@@ -170,11 +171,43 @@ module.exports = {
                 },
                 slider1: {
                     from: { transform: "translateX(0)"},
-                    to: { transform: "translateX(-45rem)"}
+                    to: { transform: "translateX(-30.75rem)"}
                 },
                 slider2: {
                     from: { transform: "translateX(0)"},
+                    to: { transform: "translateX(-51.25rem)"}
+                },
+                slider1md: {
+                    from: { transform: "translateX(0)"},
+                    to: { transform: "translateX(-51rem)"}
+                },
+                slider2md: {
+                    from: { transform: "translateX(0)"},
+                    to: { transform: "translateX(-85rem)"}
+                },
+                slider1lg: {
+                    from: { transform: "translateX(0)"},
+                    to: { transform: "translateX(-67.5rem)"}
+                },
+                slider2lg: {
+                    from: { transform: "translateX(0)"},
                     to: { transform: "translateX(-112.5rem)"}
+                },
+                slider1xl: {
+                    from: { transform: "translateX(0)"},
+                    to: { transform: "translateX(-49.5rem)"}
+                },
+                slider2xl: {
+                    from: { transform: "translateX(0)"},
+                    to: { transform: "translateX(-82.5rem)"}
+                },
+                slider12xl: {
+                    from: { transform: "translateX(0)"},
+                    to: { transform: "translateX(-61.5rem)"}
+                },
+                slider22xl: {
+                    from: { transform: "translateX(0)"},
+                    to: { transform: "translateX(-102.5rem)"}
                 }
                 // inlinehidden: {
                 //     from: {display: 'inline'},
@@ -212,8 +245,16 @@ module.exports = {
                 navbarinactive: "navbarinactive 0.3s ease-in-out forwards",
                 navbarscrolled: "navbarscrolled 0.3s ease-in-out forwards",
                 navbarunscrolled: "navbarunscrolled 0.3s ease-in-out forwards",
-                portofolioslider1: "slider1 12s linear infinite",
+                portofolioslider1: "slider1 15s linear infinite",
                 portofolioslider2: "slider2 12s linear infinite",
+                portofolioslider1md: "slider1md 15s linear infinite",
+                portofolioslider2md: "slider2md 12s linear infinite",
+                portofolioslider1lg: "slider1lg 15s linear infinite",
+                portofolioslider2lg: "slider2lg 12s linear infinite",
+                portofolioslider1xl: "slider1xl 15s linear infinite",
+                portofolioslider2xl: "slider2xl 12s linear infinite",
+                portofolioslider12xl: "slider12xl 12s linear infinite",
+                portofolioslider22xl: "slider22xl 12s linear infinite",
                 // faqanswerhide: 'inlinehidden 0.1s ease-in-out 0.5s forwards',
                 // faqanswershow: 'inlineshow 0.1s ease-in-out forwards'
             },
