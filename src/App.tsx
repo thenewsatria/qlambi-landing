@@ -312,12 +312,12 @@ function App() {
       </section>
       {/* Why us Section */}
       <section className='bg-black pt-20 pb-20'>
-        <div className='text-center mb-32'>
-          <h1 className='text-white font-bold text-5xl'>Kenapa <span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>memilih</span> Qlambi Studio?</h1>
+        <div className='text-center mb-20 md:mb-36 lg:mb-28 mx-10 2xl:mx-0'>
+          <h1 className='text-white font-bold text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl'>Kenapa <span className='text-primary'>memilih</span> Qlambi Studio?</h1>
         </div>
         <div className='flex justify-center'>
-          <div className='w-4/5 flex justify-between items-center'>
-            <div className='w-1/2 mr-14'>
+          <div className='w-5/6 flex flex-col lg:flex-row lg:justify-between lg:items-center'>
+            <div className='w-full md:w-10/12 md:mx-auto lg:w-1/2 lg:mr-7 xl:mr-10 2xl:mr-14 order-last lg:order-none'>
               {
                 whys.map((reason) => (
                   <WhyUsDropdown num={reason.num} title={reason.title} description={reason.description} key={reason.num} />
@@ -331,11 +331,11 @@ function App() {
               <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] absolute border-4 border-white bottom-[2rem] right-0'>
               </div>
             </div> */}
-            <div className='w-1/2 ml-14 relative h-screen'>
+            <div className='w-5/6 md:w-6/12 lg:w-1/2 mx-auto lg:ml-7 xl:ml-10 2xl:ml-14 relative h-[24rem] md:h-[30rem] lg:h-[38rem] xl:h-[45rem] 2xl:h-screen mb-20 lg:mb-0'>
               <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] overflow-hidden absolute z-10 top-0 left-0'>
                 <img className='w-full object-cover object-left' src={whyUs} alt="" />
               </div>
-              <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] absolute border-4 border-white bottom-[2rem] right-0 border-dashed'>
+              <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] absolute border-4 border-white bottom-[1rem] lg:bottom-[1.5rem] right-0 border-dashed'>
               </div>
             </div>
           </div>
@@ -557,12 +557,12 @@ function App() {
           <h1 className='text-white text-3xl 2xl:text-4xl font-bold hidden xl:inline'>Frequently A<span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>sked Qu</span>estion (FAQ)</h1>
         </div>
         <div className='w-5/6 md:w-10/12 xl:w-9/12 mx-auto flex flex-col md:flex-row justify-between items-start'>
-          <div className='md:w-1/2 md:mr-3 lg:mr-4 xl:mr-8'>
+          <div className='w-full md:w-1/2 md:mr-3 lg:mr-4 xl:mr-8'>
             {faqs.left.map((faq, id) => (
               <FAQDropdown2 question={faq.question} answer={faq.answer} key={id} />
             ))}
           </div>
-          <div className='md:w-1/2 md:ml-3 lg:ml-4 xl:ml-8'>
+          <div className='w-full md:w-1/2 md:ml-3 lg:ml-4 xl:ml-8'>
             {faqs.right.map((faq, id) => (
               <FAQDropdown2 question={faq.question} answer={faq.answer} key={id} />
             ))}
