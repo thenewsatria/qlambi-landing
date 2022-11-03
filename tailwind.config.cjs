@@ -8,7 +8,9 @@ module.exports = {
         extend: {
             colors: {
                 // primary: '#FF024C'
-                primary: '#C81C28'
+                primary: '#C81C28',
+                secondary: '#000000',
+                tertiary: '#121212',
             },
             fontFamily: {
                 primary: ['"Poppins"', 'sans-serif']

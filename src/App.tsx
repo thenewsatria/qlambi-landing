@@ -248,40 +248,47 @@ function App() {
       </NavigationBar>
       
       {/* Beranda Section */}
-      <section className='bg-black flex justify-center pt-56 pb-20 relative' id='beranda' ref={mainSections.get('beranda')}>
+      <section className='bg-black flex justify-center pt-52 2xl:pt-56 pb-20 relative' id='beranda' ref={mainSections.get('beranda')}>
         <div className='absolute top-0 left-0'>
           <img className='w-160' src={radialBg1} alt="" />
         </div>
         <div className='absolute top-0 right-0'>
           <img className='w-128' src={radialBg2} alt="" />
         </div>
-        <div className='w-4/5'>
-          <div className='flex justify-between items-center'>
-            <div className='w-1/2 mr-16'>
-              <h1 className='text-5xl font-bold text-white leading-snug relative z-10'>Kini cetak desain <span className='text-primary'>Kaos</span> lebih <span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>mudah</span> dan <span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>simple</span> di Qlambi Studio.</h1>
-              <h2 className='mt-6 font-semibold text-white text-xl tracking-wide relative z-10'>
+        <div className='w-5/6'>
+          <div className='flex flex-col lg:flex-row justify-between xl:items-center'>
+            <div className='w-full lg:w-1/2 lg:mr-12 xl:mr-16'>
+              <h1 className='text-3xl md:text-4xl xl:text-3xl 2xl:text-4xl font-bold text-white leading-relaxed md:leading-relaxed xl:leading-relaxed 2xl:leading-relaxed relative z-10'>Kini ce<span className='underline decoration-4 underline-offset-[.5rem] 2xl:underline-offset-[1rem] decoration-primary'>tak de</span>sain <span className='text-primary'>Kaos</span> lebih mudah<span className='underline decoration-4 underline-offset-[.5rem] 2xl:underline-offset-[1rem] decoration-primary'> dan s</span>imple di Qlambi Studio.</h1>
+              <h2 className='mt-6 md:mt-12 text-white text-base md:text-lg xl:text-lg 2xl:text-xl tracking-wide relative z-10'>
                 Kami siap melayani pembuatan desain, sablon, kaos, celana, sweatshirt, hoodie, seragam, dll.
               </h2>
-              <div className='flex font-semibold text-xl mt-12'>
-                  <button className='bg-slate-800 rounded-full text-white w-6/12 py-3 px-3 mr-8 relative z-10'>Download Pricelist</button>
-                  <button className='bg-primary rounded-full text-white w-6/12 py-3 px-3'>Pesan Sekarang</button>
+              <div className='mt-12 md:mt-20 mx-auto w-11/12 md:w-3/5 md:h-[30rem] h-[21.5rem] relative lg:hidden'>
+                <div className='w-11/12 h-[90%] rounded-lg rounded-tl-[3.5rem] overflow-hidden absolute z-10'>
+                  <img className='w-full object-cover object-center' src={jacketPic} alt="" />
+                </div>
+                <div className='w-11/12 h-[90%] rounded-lg rounded-tl-[3.5rem] absolute border-2 border-white border-dashed bottom-0 right-0'>
+                </div>
               </div>
-              <div className='flex mt-20'>
-              <div className='mr-20'>
-                <p className='text-4xl text-white font-semibold mb-1'>100+</p>
-                <p className='text-white text-xl'>Produksi</p>
+              <div className='flex flex-col md:flex-row font-semibold lg:text-sm 2xl:text-lg mt-12 md:mt-16 2xl:mt-16'>
+                  <button className='bg-slate-800 rounded-full mx-auto 2xl:mx-0 text-white w-11/12 mb-4 md:mb-0 2xl:w-6/12 py-3 px-3 md:mr-6 lg:mr-2 xl:mr-5 2xl:mr-8 relative z-10'>Download Pricelist</button>
+                  <button className='bg-primary rounded-full mx-auto 2xl:mx-0 text-white w-11/12 2xl:w-6/12 py-3 px-3 md:ml-6 lg:ml-2 xl:ml-5 2xl:ml-8 z-10'>Pesan Sekarang</button>
               </div>
-              <div className='mr-20'>
-                <p className='text-4xl text-white font-semibold mb-1'>50+</p>
-                <p className='text-white text-xl'>Client</p>
-              </div>
-              <div>
-                <p className='text-4xl text-white font-semibold mb-1'>100+</p>
-                <p className='text-white text-xl'>Desain</p>
+              <div className='flex justify-evenly lg:justify-around xl:justify-start mt-12 md:mt-16 2xl:mt-20'>
+                <div className='xl:mr-20'>
+                  <p className='text-2xl md:text-3xl 2xl:text-4xl text-white font-semibold mb-1'>100+</p>
+                  <p className='text-white text-sm md:text-lg xl:text-base 2xl:text-lg'>Produksi</p>
+                </div>
+                <div className='xl:mr-20'>
+                  <p className='text-2xl md:text-3xl 2xl:text-4xl text-white font-semibold mb-1'>50+</p>
+                  <p className='text-white text-sm md:text-lg xl:text-base 2xl:text-lg'>Client</p>
+                </div>
+                <div>
+                  <p className='text-2xl md:text-3xl 2xl:text-4xl text-white font-semibold mb-1'>100+</p>
+                  <p className='text-white text-sm md:text-lg xl:text-base 2xl:text-lg'>Desain</p>
+                </div>
               </div>
             </div>
-            </div>
-            <div className='w-1/2 h-[50rem] ml-16 relative'>
+            <div className='w-1/2 lg:h-[35rem] xl:h-[38rem] 2xl:h-[48rem] xl:ml-16 relative hidden lg:block'>
               <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] overflow-hidden absolute z-10'>
                 <img className='w-full object-cover object-center' src={jacketPic} alt="" />
               </div>
