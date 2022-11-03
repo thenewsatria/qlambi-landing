@@ -292,9 +292,9 @@ function App() {
         </div>
       </section>
       {/* Layanan Section */}
-      <section className='pt-20 bg-zinc-900 pb-40' id='layanan' ref={mainSections.get('layanan')}>
-        <div className='text-center pb-28'>
-          <h1 className='text-5xl font-bold text-white'>Layanan <span className='text-primary'>Kami</span></h1>
+      <section className='pt-20 bg-zinc-900 pb-20 2xl:pb-40' id='layanan' ref={mainSections.get('layanan')}>
+        <div className='text-center mb-20 2xl:mb-28'>
+          <h1 className='font-bold text-white text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl'>Layanan <span className='text-primary'>Kami</span></h1>
         </div>
         <div className='flex justify-center relative'>
           <div className="absolute top-[4rem] left-[-1.2rem]">
@@ -303,7 +303,7 @@ function App() {
           <div className="absolute bottom-[-3rem] right-[10rem]">
             <img src={dottedBg1} alt="" />
           </div>
-          <div className='grid gap-20 grid-cols-3 grid-rows-2 auto-cols-max auto-rows-max w-9/12'>
+          <div className='grid gap-10 grid-cols-1 w-4/6 md:gap-10 md:grid-cols-2 md:w-5/6 lg:w-5/6 lg:grid-cols-3 lg:gap-8 xl:gap-10 2xl:gap-14 2xl:grid-cols-3 2xl:grid-rows-2 auto-cols-max auto-rows-max 2xl:w-9/12'>
             {services.map((val, key) => ( 
               <ServiceBox image={val.img} title={val.serviceName} description={val.serviceDesc} key={key} />
             ))}
@@ -331,7 +331,7 @@ function App() {
               <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] absolute border-4 border-white bottom-[2rem] right-0'>
               </div>
             </div> */}
-            <div className='w-5/6 md:w-6/12 lg:w-1/2 mx-auto lg:ml-7 xl:ml-10 2xl:ml-14 relative h-[24rem] md:h-[30rem] lg:h-[38rem] xl:h-[45rem] 2xl:h-screen mb-20 lg:mb-0'>
+            <div className='w-5/6 md:w-6/12 lg:w-1/2 mx-auto lg:ml-7 xl:ml-10 2xl:ml-14 relative h-[24rem] md:h-[30rem] lg:h-[38rem] xl:h-[45rem~] 2xl:h-screen mb-20 lg:mb-0'>
               <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] overflow-hidden absolute z-10 top-0 left-0'>
                 <img className='w-full object-cover object-left' src={whyUs} alt="" />
               </div>
@@ -436,70 +436,6 @@ function App() {
           </div>
         </div>
       </section>
-      {/* Portofolio Section sebelum responsive */}
-      {/* <section className='bg-zinc-900 pt-20 pb-20' id='portofolio' ref={mainSections.get('portofolio')}>
-        <div className='w-4/5 mx-auto flex justify-between items-center'>
-          <div className='w-5/12 mr-24'>
-            <div>
-              <h1 className='text-primary font-semibold text-3xl mb-5'>Portofolio</h1>
-              <h2 className='text-white font-semibold text-4xl mb-8'>Ide dan solusi dari kami untuk pelanggan kami. 😊</h2>
-              <h3 className='text-white text-2xl'>Kami berikan yang terbaik dan untuk pelanggan pelanggan kami.</h3>
-              <div className='mt-16'>
-                <button className='text-white bg-primary font-semibold px-12 py-3 text-xl rounded-full'>Download Katalog Portofolio</button>
-              </div>
-            </div>
-          </div>
-          <div className='w-7/12 flex flex-col'>
-            <div className='w-full overflow-hidden mb-16'>
-              <div className='w-full flex flex-nowrap animate-portofolioslider1'>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden hover:scale-'>
-                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={sablon2} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={sablon2} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={sablon1} alt="" />
-                </div>
-              </div>
-            </div>
-            <div className='w-full overflow-hidden'>
-              <div className='w-full flex flex-nowrap animate-portofolioslider2'>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain1} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain2} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain3} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain4} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain5} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain1} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain2} alt="" />
-                </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl w-80 h-80 bg-zinc-900 flex-[0_0_auto] mr-10 overflow-hidden'>
-                  <img className='object-cover object-center w-full' src={desain3} alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
       {/* Testimoni Section */}
       <section className='bg-black pt-20 pb-20'>
         <div className='w-5/6 mx-auto'>
