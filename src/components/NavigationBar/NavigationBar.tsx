@@ -23,12 +23,12 @@ function NavigationBar(props: any){
     window.addEventListener('load', changeNavbarColor)
 
     return (
-        <nav className="w-screen flex justify-center fixed z-20 rounded-bl-[20rem]" ref={navbar}>
+        <nav className="w-screen hidden lg:flex justify-center fixed z-20 rounded-bl-[20rem]" ref={navbar}>
             <div className="w-11/12 flex justify-between items-center py-6">
-                <div className='w-32'>
+                <div className='w-24 xl:w-20 2xl:w-28'>
                     <img className='w-full' src={qlambiLogo} alt="" />
                 </div>
-                <div className="flex text-xl font-bold">
+                <div className="flex text-base 2xl:text-lg font-semibold">
                     {props.children}
                 </div>
             </div>

@@ -37,6 +37,9 @@ import sablon3 from './assets/porto_sablon3.png'
 
 import whyUs from './assets/whyUs.png'
 
+import hamburgerOpen from './assets/hamburger_open.svg'
+import hamburgerClose from './assets/hamburger_close.svg'
+
 import './App.css'
 import NavigationBar from './components/NavigationBar/NavigationBar'
 import WhyUsDropdown from './components/WhyUsDropdown/WhyUsDropdown'
@@ -56,11 +59,19 @@ function App() {
     ['beranda', useRef<HTMLElement>(null)],
     ['layanan', useRef<HTMLElement>(null)],
     ['portofolio', useRef<HTMLElement>(null)],
-    ['tentang', useRef<HTMLElement>(null)]
+    ['tentang', useRef<HTMLElement>(null)],
+
+    ['beranda2', useRef<HTMLElement>(null)],
+    ['layanan2', useRef<HTMLElement>(null)],
+    ['portofolio2', useRef<HTMLElement>(null)],
+    ['tentang2', useRef<HTMLElement>(null)]
   ])
 
   const scrollableTestimoni: any = useRef<HTMLElement>(null)
   const testimoniCard: any = useRef<HTMLElement>(null)
+
+  const responsiveNavbar: any = useRef<HTMLElement>(null)
+  
   
   const testimoniButtonHandler = (direction: string) => {
     const testimoniCardLength = testimoniCard.current.offsetWidth
@@ -74,13 +85,22 @@ function App() {
     }
   }
   
-  const handleNavbarClick = (e: any, sectionName: string) => {
+  const handleNavbarLink = (e: any, sectionName: string) => {
     e.preventDefault()
     const scrollPos = mainSections.get(sectionName).current.offsetTop
     window.scrollTo({
       top: scrollPos,
       behavior: 'smooth'
     })
+  }
+
+  const toggleNavbarActive = () => {
+    const navbar = responsiveNavbar.current
+    if (navbar.classList.contains('navbar-is-active')) {
+      navbar.classList.remove('navbar-is-active')
+    }else{
+      navbar.classList.add('navbar-is-active')
+    }
   }
   
   const navigationHightlight = () => {
@@ -90,18 +110,25 @@ function App() {
       const sectionHeight: number = section.current?.offsetHeight
       const sectionTop: number = section.current?.offsetTop - 50
       const currentActiveLink = activeNavRef.get(key).current
-         
+      const currentActiveLink2 = activeNavRef.get(key+"2").current
+
       if (currentPos > sectionTop && currentPos <= sectionTop + sectionHeight) {
-          currentActiveLink.classList.add("animate-navbaractive")
-          currentActiveLink.classList.remove("animate-navbarinactive")
-        }else{
-          if (currentActiveLink.classList.contains('animate-navbaractive')){
-            currentActiveLink.classList.add("animate-navbarinactive")
-          }
-          currentActiveLink.classList.remove("animate-navbaractive")
+        currentActiveLink.classList.add("animate-navbaractive")
+        currentActiveLink.classList.remove("animate-navbarinactive")
+
+        currentActiveLink2.classList.add("animate-navbaractive")
+        currentActiveLink2.classList.remove("animate-navbarinactive")
+      }else{
+        if (currentActiveLink.classList.contains('animate-navbaractive')){
+          currentActiveLink.classList.add("animate-navbarinactive")
+          currentActiveLink2.classList.add("animate-navbarinactive")
+
         }
-      })
-    }
+        currentActiveLink.classList.remove("animate-navbaractive")
+        currentActiveLink2.classList.remove("animate-navbaractive")
+      }
+    })
+  }
     
   // run once after mounted
   useEffect(() => {
@@ -228,27 +255,61 @@ function App() {
     }
   ]
 
-  console.log('rendering')
   return (
     <div className="App font-primary">
       <NavigationBar>
         <div className='mr-10 text-primary' ref={activeNavRef.get('beranda')}>
-            <a className="cursor-pointer" href='#beranda' onClick={(e) => handleNavbarClick(e, 'beranda')}>Beranda</a>
+            <a className="cursor-pointer" href='#beranda' onClick={(e) => handleNavbarLink(e, 'beranda')}>Beranda</a>
         </div>
         <div className='mr-10 text-white' ref={activeNavRef.get('layanan')}> 
-            <a className="cursor-pointer" href='#layanan' onClick={(e) => handleNavbarClick(e, 'layanan')}>Layanan</a>
+            <a className="cursor-pointer" href='#layanan' onClick={(e) => handleNavbarLink(e, 'layanan')}>Layanan</a>
         </div>
         <div className='mr-10 text-white' ref={activeNavRef.get('portofolio')}>
-            <a className="cursor-pointer" href='#portofolio' onClick={(e) => handleNavbarClick(e, 'portofolio')}>Portofolio</a>
+            <a className="cursor-pointer" href='#portofolio' onClick={(e) => handleNavbarLink(e, 'portofolio')}>Portofolio</a>
         </div>
         <div className='mr-10 text-white' ref={activeNavRef.get('tentang')}>
-            <a className="cursor-pointer" href='#tentang' onClick={(e) => handleNavbarClick(e, 'tentang')}>Tentang</a>
+            <a className="cursor-pointer" href='#tentang' onClick={(e) => handleNavbarLink(e, 'tentang')}>Tentang</a>
         </div>
         {/* <p className='text-white font-semibold'>{testiScrollX}</p> */}
       </NavigationBar>
-      
+
+      <nav className='w-screen fixed z-20 lg:hidden group' ref={responsiveNavbar}>
+        <div className='flex justify-end items-start w-5/6 mx-auto pt-10 md:pt-16'>
+          <button className='bg-secondary rounded-lg drop-shadow-[0_2px_1px_rgba(255,255,255,0.25)]' onClick={toggleNavbarActive}>
+            <img className='w-12 md:w-14' src={hamburgerOpen} alt="open drawer" />
+          </button>
+        </div>
+        <div className='w-screen bg-secondary h-screen absolute top-0 left-0 translate-x-full group-[.navbar-is-active]:translate-x-0 transition-all duration-500'>
+          <div className='flex justify-between items-start w-5/6 mx-auto pt-10 md:pt-16'>
+            <div>
+              <img className='w-32 md:w-36' src={qlambiLogo} alt="" />
+            </div>
+            <button onClick={toggleNavbarActive}>
+              <img className='w-12 md:w-14' src={hamburgerClose} alt="close" />
+            </button>
+          </div>
+          <div className='mt-24 md:mt-28 w-5/6 mx-auto font-semibold text-2xl md:text-3xl'>
+            <div className='mb-10 md:mb-14 text-primary' ref={activeNavRef.get('beranda2')}>
+              <a className="cursor-pointer" href='#beranda' onClick={(e) => handleNavbarLink(e, 'beranda')}>Beranda</a>
+            </div>
+            <div className='mb-10 md:mb-14 text-white' ref={activeNavRef.get('layanan2')}>
+              <a className="cursor-pointer" href='#layanan' onClick={(e) => handleNavbarLink(e, 'layanan')}>Layanan</a>
+            </div>
+            <div className='mb-10 md:mb-14 text-white' ref={activeNavRef.get('portofolio2')}>
+              <a className="cursor-pointer" href='#portofolio' onClick={(e) => handleNavbarLink(e, 'portofolio')}>Portofolio</a>
+            </div>
+            <div className='mb-10 md:mb-14 text-white' ref={activeNavRef.get('tentang2')}>
+              <a className="cursor-pointer" href='#tentang' onClick={(e) => handleNavbarLink(e, 'tentang')}>Tentang</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
       {/* Beranda Section */}
       <section className='bg-black flex justify-center pt-52 2xl:pt-56 pb-20 relative' id='beranda' ref={mainSections.get('beranda')}>
+        <div className='absolute top-0 left-0 mt-9 md:mt-16 md:ml-16 ml-8 lg:hidden'>
+          <img className='w-32 md:w-36' src={qlambiLogo} alt="" />
+        </div>
         <div className='absolute top-0 left-0'>
           <img className='w-160' src={radialBg1} alt="" />
         </div>
@@ -289,10 +350,10 @@ function App() {
               </div>
             </div>
             <div className='w-1/2 lg:h-[35rem] xl:h-[38rem] 2xl:h-[48rem] xl:ml-16 relative hidden lg:block'>
-              <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] overflow-hidden absolute z-10'>
+              <div className='w-11/12 h-[90%] rounded-xl rounded-tl-[5rem] overflow-hidden absolute z-10'>
                 <img className='w-full object-cover object-center' src={jacketPic} alt="" />
               </div>
-              <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] absolute border-4 border-white border-dashed bottom-0 right-0'>
+              <div className='w-11/12 h-[90%] rounded-xl rounded-tl-[5rem] absolute border-2 border-white border-dashed bottom-0 right-0'>
               </div>
             </div>
           </div>
@@ -338,11 +399,11 @@ function App() {
               <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] absolute border-4 border-white bottom-[2rem] right-0'>
               </div>
             </div> */}
-            <div className='w-5/6 md:w-6/12 lg:w-1/2 mx-auto lg:ml-7 xl:ml-10 2xl:ml-14 relative h-[24rem] md:h-[30rem] lg:h-[38rem] xl:h-[45rem~] 2xl:h-screen mb-20 lg:mb-0'>
-              <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] overflow-hidden absolute z-10 top-0 left-0'>
+            <div className='w-5/6 md:w-6/12 lg:w-1/2 mx-auto lg:ml-7 xl:ml-10 2xl:ml-14 relative h-[22rem] md:h-[30rem] lg:h-[38rem] xl:h-[45rem~] 2xl:h-screen mb-20 lg:mb-0'>
+              <div className='w-11/12 h-[90%] rounded-lg lg:rounded-xl rounded-tl-[3.5rem] lg:rounded-tl-[5rem] overflow-hidden absolute z-10 top-0 left-0'>
                 <img className='w-full object-cover object-left' src={whyUs} alt="" />
               </div>
-              <div className='w-11/12 h-[90%] rounded-2xl rounded-tl-[8rem] absolute border-4 border-white bottom-[1rem] lg:bottom-[1.5rem] right-0 border-dashed'>
+              <div className='w-11/12 h-[90%] rounded-lg lg:rounded-xl rounded-tl-[3.5rem] lg:rounded-tl-[5rem] absolute border-2 border-[#969696] bottom-[1rem] lg:bottom-[1.5rem] right-0 border-dashed'>
               </div>
             </div>
           </div>
@@ -364,32 +425,32 @@ function App() {
           <div className='w-full xl:w-7/12 flex flex-col'>
             <div className='w-full overflow-hidden mb-8 md:mb-12 xl:mb-16'>
               <div className='w-full flex flex-nowrap animate-portofolioslider1 md:animate-portofolioslider1md lg:animate-portofolioslider1lg xl:animate-portofolioslider1xl 2xl:animate-portofolioslider12xl'>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                   w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                   bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden hover:scale-'>
                   <img className='object-cover object-center w-full' src={sablon1} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                  w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                  bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={sablon2} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg  
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={sablon3} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg  
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={sablon1} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={sablon2} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={sablon3} alt="" />
@@ -398,42 +459,42 @@ function App() {
             </div>
             <div className='w-full overflow-hidden'>
               <div className='w-full flex flex-nowrap animate-portofolioslider2 md:animate-portofolioslider2md lg:animate-portofolioslider2lg xl:animate-portofolioslider2xl 2xl:animate-portofolioslider22xl'>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain1} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain2} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain3} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain4} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain5} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain1} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain2} alt="" />
                 </div>
-                <div className='rounded-tr-[2.7rem]  rounded-bl-[2.7rem] rounded-tl-xl rounded-br-xl 
+                <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain3} alt="" />
