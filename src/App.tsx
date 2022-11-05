@@ -481,7 +481,7 @@ function App() {
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-tertiaryflex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain5} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
@@ -496,7 +496,7 @@ function App() {
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-tertiaryflex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain3} alt="" />
                 </div>
               </div>
