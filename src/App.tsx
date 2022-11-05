@@ -306,8 +306,8 @@ function App() {
       </nav>
 
       {/* Beranda Section */}
-      <section className='bg-black flex justify-center pt-52 2xl:pt-56 pb-20 relative' id='beranda' ref={mainSections.get('beranda')}>
-        <div className='absolute top-0 left-0 mt-9 md:mt-16 md:ml-16 ml-8 lg:hidden'>
+      <section className='bg-secondary flex justify-center pt-52 2xl:pt-56 pb-20 relative' id='beranda' ref={mainSections.get('beranda')}>
+        <div className='absolute top-0 left-0 mt-9 md:mt-16 md:ml-16 ml-8 lg:hidden z-10'>
           <img className='w-32 md:w-36' src={qlambiLogo} alt="" />
         </div>
         <div className='absolute top-0 left-0'>
@@ -360,7 +360,7 @@ function App() {
         </div>
       </section>
       {/* Layanan Section */}
-      <section className='pt-20 bg-zinc-900 pb-20 2xl:pb-40' id='layanan' ref={mainSections.get('layanan')}>
+      <section className='pt-20 bg-tertiary pb-20 2xl:pb-40' id='layanan' ref={mainSections.get('layanan')}>
         <div className='text-center mb-20 2xl:mb-28'>
           <h1 className='font-bold text-white text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl'>Layanan <span className='text-primary'>Kami</span></h1>
         </div>
@@ -379,7 +379,7 @@ function App() {
         </div>
       </section>
       {/* Why us Section */}
-      <section className='bg-black pt-20 pb-20'>
+      <section className='bg-secondary pt-20 pb-20'>
         <div className='text-center mb-20 md:mb-36 lg:mb-28 mx-10 2xl:mx-0'>
           <h1 className='text-white font-bold text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl'>Kenapa <span className='text-primary'>memilih</span> Qlambi Studio?</h1>
         </div>
@@ -410,7 +410,7 @@ function App() {
         </div>
       </section>
       {/* Portofolio Section */}
-      <section className='bg-zinc-900 pt-20 pb-20' id='portofolio' ref={mainSections.get('portofolio')}>
+      <section className='bg-tertiary pt-20 pb-20' id='portofolio' ref={mainSections.get('portofolio')}>
         <div className='w-5/6 mx-auto flex flex-col xl:flex-row justify-between items-center'>
           <div className='w-full mb-20 2xl:mb-0 xl:w-5/12 xl:mr-24'>
             <div>
@@ -427,32 +427,32 @@ function App() {
               <div className='w-full flex flex-nowrap animate-portofolioslider1 md:animate-portofolioslider1md lg:animate-portofolioslider1lg xl:animate-portofolioslider1xl 2xl:animate-portofolioslider12xl'>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                   w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                  bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden hover:scale-'>
+                  bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden hover:scale-'>
                   <img className='object-cover object-center w-full' src={sablon1} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                  w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                 bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                 bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={sablon2} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg  
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={sablon3} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg  
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={sablon1} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={sablon2} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={sablon3} alt="" />
                 </div>
               </div>
@@ -461,42 +461,42 @@ function App() {
               <div className='w-full flex flex-nowrap animate-portofolioslider2 md:animate-portofolioslider2md lg:animate-portofolioslider2lg xl:animate-portofolioslider2xl 2xl:animate-portofolioslider22xl'>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain1} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain2} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain3} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain4} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiaryflex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain5} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain1} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiary flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain2} alt="" />
                 </div>
                 <div className='rounded-tr-[2rem]  rounded-bl-[2rem] rounded-tl-lg rounded-br-lg 
                 w-36 h-36 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-56 xl:h-56 2xl:w-72 2xl:h-72
-                bg-zinc-900 flex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
+                bg-tertiaryflex-[0_0_auto] mr-5 md:mr-8 lg:mr-10 overflow-hidden'>
                   <img className='object-cover object-center w-full' src={desain3} alt="" />
                 </div>
               </div>
@@ -505,7 +505,7 @@ function App() {
         </div>
       </section>
       {/* Testimoni Section */}
-      <section className='bg-black pt-20 pb-20'>
+      <section className='bg-secondary pt-20 pb-20'>
         <div className='w-5/6 mx-auto'>
           <div>
             <h1 className='text-primary font-semibold text-2xl lg:text-3xl xl:text-2xl 2xl:text-3xl mb-5'>Testimoni Kami</h1>
@@ -540,7 +540,7 @@ function App() {
         </div>
       </section>
       {/* Tunggu Apa Lagi? Section */}
-      <section className='bg-zinc-900 pt-12 pb-8 md:pt-16 md:pb-12 lg:pt-14 lg:pb-14 xl:pt-20 xl:pb-32 2xl:pt-28 2xl:pb-36'>
+      <section className='bg-tertiary pt-12 pb-8 md:pt-16 md:pb-12 lg:pt-14 lg:pb-14 xl:pt-20 xl:pb-32 2xl:pt-28 2xl:pb-36'>
         <div className='w-5/6 mx-auto bg-primary rounded-lg pt-6 md:pt-10 2xl:rounded-2xl pb-5 md:pb-7 xl:pb-12 2xl:pt-8 relative overflow-hidden'>
           <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-10/12 md:w-auto'>
             <img className='object-cover object-center animate-spin' src={radialBg4} alt="" />
@@ -555,7 +555,7 @@ function App() {
         </div>
       </section>
       {/* FAQ section */}
-      <section className='bg-black pt-20 pb-20'>
+      <section className='bg-secondary pt-20 pb-20'>
         <div className='text-center mb-20 xl:mb-32'>
           <h1 className='text-white text-3xl lg:text-4xl font-bold xl:hidden'>Frequently Asked Question <span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>(FAQ)</span></h1>
           <h1 className='text-white text-3xl 2xl:text-4xl font-bold hidden xl:inline'>Frequently A<span className='underline decoration-4 underline-offset-[1rem] decoration-primary'>sked Qu</span>estion (FAQ)</h1>
@@ -574,7 +574,7 @@ function App() {
         </div>
       </section>
       {/* Footer Section */}
-      <footer className='bg-zinc-900 pt-20 md:pt-28 pb-16' id='tentang' ref={mainSections.get('tentang')}>
+      <footer className='bg-tertiary pt-20 md:pt-28 pb-16' id='tentang' ref={mainSections.get('tentang')}>
         <div className='flex justify-center'>
           <div className='w-5/6 flex flex-col lg:flex-row justify-between items-start'>
             <div className='mb-20 lg:w-1/3 lg:mb-0'>
