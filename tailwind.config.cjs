@@ -7,8 +7,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                // primary: '#FF024C'
-                primary: '#C81C28',
+                // primary: '#C81C28',
+                primary: '#FF024C',
                 secondary: '#000000',
                 tertiary: '#121212',
             },
@@ -223,10 +223,10 @@ module.exports = {
                 },
                 navbaractive: {
                     from: {color: "rgb(255 255 255)"},
-                    to: {color: "#C81C28"},
+                    to: {color: "#FF024C"},
                 },
                 navbarinactive: {
-                    from: {color: "#C81C28"},
+                    from: {color: "#FF024C"},
                     to: {color: "rgb(255 255 255)"},
                 },
                 navbarscrolled: {

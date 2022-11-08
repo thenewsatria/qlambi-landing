@@ -35,7 +35,7 @@ import sablon1 from './assets/porto_sablon1.png'
 import sablon2 from './assets/porto_sablon2.png'
 import sablon3 from './assets/porto_sablon3.png'
 
-import whyUs from './assets/whyUs.png'
+import whyUs from './assets/whyus.png'
 
 import hamburgerOpen from './assets/hamburger_open.svg'
 import hamburgerClose from './assets/hamburger_close.svg'
@@ -71,8 +71,37 @@ function App() {
   const testimoniCard: any = useRef<HTMLElement>(null)
 
   const responsiveNavbar: any = useRef<HTMLElement>(null)
+
+  const changingHeaderText: any = useRef<HTMLElement>(null)
+  const headerText: any = useRef<HTMLElement>(null)
+
   
-  
+  const headerTextChanger = () => {
+    const texts = services.map((service) => service.serviceName)
+    texts.splice(texts.indexOf('Desain'), 1)
+    changingHeaderText.current.innerHTML = texts[0]
+    let i = 1
+    setTimeout(() => {
+      headerText.current.classList.add('is-changing')
+    }, 3700);
+    setTimeout(() => {
+      headerText.current.classList.remove('is-changing')
+    }, 4300);
+    setInterval(() => {
+      if (i >= texts.length) {
+        i = 0
+      }
+      changingHeaderText.current.innerHTML = texts[i]
+      i += 1
+      setTimeout(() => {
+        headerText.current.classList.add('is-changing')
+      }, 3700);
+      setTimeout(() => {
+        headerText.current.classList.remove('is-changing')
+      }, 4300);
+    }, 4000)
+  }
+
   const testimoniButtonHandler = (direction: string) => {
     const testimoniCardLength = testimoniCard.current.offsetWidth
     const testimoniStyle = window.getComputedStyle(testimoniCard.current)
@@ -133,6 +162,7 @@ function App() {
   // run once after mounted
   useEffect(() => {
     navigationHightlight()
+    headerTextChanger()
     window.addEventListener("scroll", navigationHightlight);
   }, [])
   
@@ -279,7 +309,7 @@ function App() {
             <img className='w-12 md:w-14' src={hamburgerOpen} alt="open drawer" />
           </button>
         </div>
-        <div className='w-screen bg-secondary h-screen absolute top-0 left-0 translate-x-full group-[.navbar-is-active]:translate-x-0 transition-all duration-500'>
+        <div className='w-screen bg-secondary h-screen absolute top-0 left-0 translate-x-full group-[.navbar-is-active]:translate-x-0 transition-all duration-200'>
           <div className='flex justify-between items-start w-5/6 mx-auto pt-10 md:pt-16'>
             <div>
               <img className='w-32 md:w-36' src={qlambiLogo} alt="" />
@@ -310,7 +340,7 @@ function App() {
         <div className='absolute top-0 left-0 mt-9 md:mt-16 md:ml-16 ml-8 lg:hidden z-10'>
           <img className='w-32 md:w-36' src={qlambiLogo} alt="" />
         </div>
-        <div className='absolute top-0 left-0'>
+        <div className='absolute top-0 left-0 hidden xl:block'>
           <img className='w-160' src={radialBg1} alt="" />
         </div>
         <div className='absolute top-0 right-0'>
@@ -319,7 +349,8 @@ function App() {
         <div className='w-5/6'>
           <div className='flex flex-col lg:flex-row justify-between xl:items-center'>
             <div className='w-full lg:w-1/2 lg:mr-12 xl:mr-16'>
-              <h1 className='text-3xl md:text-4xl xl:text-3xl 2xl:text-4xl font-bold text-white leading-relaxed md:leading-relaxed xl:leading-relaxed 2xl:leading-relaxed relative z-10'>Kini ce<span className='underline decoration-4 underline-offset-[.5rem] 2xl:underline-offset-[1rem] decoration-primary'>tak de</span>sain <span className='text-primary'>Kaos</span> lebih mudah<span className='underline decoration-4 underline-offset-[.5rem] 2xl:underline-offset-[1rem] decoration-primary'> dan s</span>imple di Qlambi Studio.</h1>
+              <h1 className='text-3xl md:text-4xl xl:text-3xl 2xl:text-4xl font-bold text-white leading-relaxed md:leading-relaxed xl:leading-relaxed 2xl:leading-relaxed relative z-10 group' ref={headerText}>
+                Kini ce<span className='underline decoration-4 underline-offset-[.5rem] 2xl:underline-offset-[1rem] decoration-primary'>tak de</span>sain <div className='text-primary inline-block opacity-100 scale-1 w-[8.2rem] md:w-[9.8rem] xl:w-[8.2rem] 2xl:w-[9.8rem] group-[.is-changing]:scale-75 group-[.is-changing]:opacity-0 text-center transition-all duration-500' ref={changingHeaderText}>Totebag</div> lebih mudah<span className='underline decoration-4 underline-offset-[.5rem] 2xl:underline-offset-[1rem] decoration-primary'> dan s</span>imple di Qlambi Studio.</h1>
               <h2 className='mt-6 md:mt-12 text-white text-base md:text-lg xl:text-lg 2xl:text-xl tracking-wide relative z-10'>
                 Kami siap melayani pembuatan desain, sablon, kaos, celana, sweatshirt, hoodie, seragam, dll.
               </h2>
@@ -331,8 +362,8 @@ function App() {
                 </div>
               </div>
               <div className='flex flex-col md:flex-row font-semibold lg:text-sm 2xl:text-lg mt-12 md:mt-16 2xl:mt-16'>
-                  <button className='bg-slate-800 rounded-full mx-auto 2xl:mx-0 text-white w-11/12 mb-4 md:mb-0 2xl:w-6/12 py-3 px-3 md:mr-6 lg:mr-2 xl:mr-5 2xl:mr-8 relative z-10'>Download Pricelist</button>
-                  <button className='bg-primary rounded-full mx-auto 2xl:mx-0 text-white w-11/12 2xl:w-6/12 py-3 px-3 md:ml-6 lg:ml-2 xl:ml-5 2xl:ml-8 z-10'>Pesan Sekarang</button>
+                  <a className='bg-slate-800 rounded-full mx-auto 2xl:mx-0 text-white text-center w-11/12 mb-4 md:mb-0 2xl:w-6/12 py-3 px-3 md:mr-6 lg:mr-2 xl:mr-5 2xl:mr-8 relative z-10' href='https://s.id/QlambiPriceList'>Download Pricelist</a>
+                  <a className='bg-primary rounded-full mx-auto 2xl:mx-0 text-white text-center w-11/12 2xl:w-6/12 py-3 px-3 md:ml-6 lg:ml-2 xl:ml-5 2xl:ml-8 z-10' href='https://s.id/NomerQlambi'>Pesan Sekarang</a>
               </div>
               <div className='flex justify-evenly lg:justify-around xl:justify-start mt-12 md:mt-16 2xl:mt-20'>
                 <div className='xl:mr-20'>
@@ -418,7 +449,7 @@ function App() {
               <h2 className='text-white font-semibold text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl mb-8'>Ide dan solusi dari kami untuk pelanggan kami. 😊</h2>
               <h3 className='text-white text-base md:text-lg lg:text-xl xl:text-lg 2xl:text-xl'>Kami berikan yang terbaik dan untuk pelanggan pelanggan kami.</h3>
               <div className='mt-12 flex justify-center xl:justify-start xl:items-center xl:mt-16'>
-                <button className='text-white bg-primary font-semibold px-10 md:px-12 xl:px-10 2xl:px-12 py-3 text-sm md:text-base lg:text-lg xl:text-base 2xl:text-lg rounded-full'>Download Katalog Portofolio</button>
+                <a className='text-white bg-primary font-semibold px-10 md:px-12 xl:px-10 2xl:px-12 py-3 text-sm md:text-base lg:text-lg xl:text-base 2xl:text-lg rounded-full' href='https://s.id/QlambiPortofolio'>Download Katalog Portofolio</a>
               </div>
             </div>
           </div>
@@ -549,7 +580,7 @@ function App() {
             <h1 className='text-center text-xl md:text-3xl lg:text-4xl xl:text-3xl text-white font-semibold mb-4 md:mb-8 xl:mb-10 2xl:text-5xl 2xl:mb-16'>Tunggu apa lagi?</h1>
             <h2 className='text-center text-xs md:text-base lg:text-lg xl:text-lg 2xl:text-2xl text-white font-semibold'>Segera hubungi kami untuk mendapatkan informasi lebih lanjut.</h2>
             <div className='flex justify-center mt-4 md:mt-6 xl:mt-8 2xl:mt-10'>
-              <button className='text-xs md:text-base lg:text-base py-2 px-10 md:px-12 mx-auto 2xl:px-20 text-primary 2xl:text-xl font-semibold bg-white 2xl:py-4 rounded-full'>Pesan Sekarang</button>
+              <a className='text-xs md:text-base lg:text-base py-2 px-10 md:px-12 mx-auto 2xl:px-20 text-primary 2xl:text-xl font-semibold bg-white 2xl:py-4 rounded-full' href='https://s.id/NomerQlambi'>Pesan Sekarang</a>
             </div>
           </div>
         </div>
@@ -592,30 +623,30 @@ function App() {
                 <div className='mb-8 lg:mb-12'>
                   <p className='text-white font-semibold text-lg 2xl:text-xl'>Sosial Media</p>
                 </div>
-                <div className='flex items-center mb-4 lg:mb-8'>
+                <a className='flex items-center mb-4 lg:mb-8' href='https://www.instagram.com/qlambistudio/'>
                   <div className='mr-4'>
                     <img className='w-5 md:w-7 lg:w-5 2xl:w-7' src={instagramIcon} alt="" />
                   </div>
                   <div>
                     <p className='text-white text-base md:text-lg lg:text-base 2xl:text-lg'>Instagram</p>
                   </div>
-                </div>
-                <div className='flex items-center mb-4 lg:mb-8'>
+                </a>
+                <a className='flex items-center mb-4 lg:mb-8' href='https://www.tiktok.com/@qlambistudio'>
                   <div className='mr-4'>
                     <img className='w-5 md:w-7 lg:w-5 2xl:w-7' src={tiktokIcon} alt="" />
                   </div>
                   <div>
                     <p className='text-white text-base md:text-lg lg:text-base 2xl:text-lg'>Tiktok</p>
                   </div>
-                </div>
-                <div className='flex items-center'>
+                </a>
+                <a className='flex items-center' href='https://s.id/NomerQlambi'>
                   <div className='mr-4'>
                     <img className='w-5 md:w-7 lg:w-5 2xl:w-7' src={whatsappIcon} alt="" />
                   </div>
                   <div>
                     <p className='text-white text-base md:text-lg lg:text-base 2xl:text-lg'>Whatsapp</p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
             <div className='lg:w-1/3 lg:ml-5 xl:ml-7'>
